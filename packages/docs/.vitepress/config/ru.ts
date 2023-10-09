@@ -148,7 +148,7 @@ export const ruConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/migration-v1-v2.html',
             },
             {
-              text: 'Работа с composables',
+              text: 'Работа с Composables',
               link: '/cookbook/composables.html',
             },
           ],

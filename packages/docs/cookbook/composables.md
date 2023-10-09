@@ -1,10 +1,10 @@
-# Dealing with Composables
+# Работа с Composables %{#dealing-with-composables}%
 
-[Composables](https://vuejs.org/guide/reusability/composables.html#composables) are functions that leverage Vue Composition API to encapsulate and reuse stateful logic. Whether you write your own, you use [external libraries](https://vueuse.org/) or do both, you can fully use the power of Composables in your pinia stores.
+[Composables](https://vuejs.org/guide/reusability/composables.html#composables) - это функции, которые использует Vue Composition API для инкапсуляции и повторного использования логики с состоянием. Независимо от того, пишете ли вы свои composables, используете [внешние библиотеки](https://vueuse.org/) или делаете и то, и другое, вы можете на полную использовать мощь composables в своих хранилищах Pinia.
 
-## Option Stores
+## Option-хранилища %{#option-stores}%
 
-When defining an option store, you can call a composable inside of the `state` property:
+При определении option-хранилища можно вызвать composable внутри свойства `state`:
 
 ```ts
 export const useAuthStore = defineStore('auth', {
@@ -14,27 +14,27 @@ export const useAuthStore = defineStore('auth', {
 })
 ```
 
-Keep in mind that **you can only return writable state** (e.g. a `ref()`). Here are some examples of composables that you can use:
+Следует помнить, что **вы можете возвращать только состояние, доступное для записи** (например, `ref()`). Вот несколько примеров composables, которые можно использовать:
 
 - [useLocalStorage](https://vueuse.org/core/useLocalStorage/)
 - [useAsyncState](https://vueuse.org/core/useAsyncState/)
 
-Here are some examples of composables that cannot be used in an option stores (but can be used with setup stores):
+Приведем примеры composables, которые не могут быть использованы в option-хранилищах (но могут быть использованы в setup-хранилищах):
 
-- [useMediaControls](https://vueuse.org/core/useMediaControls/): exposes functions
-- [useMemoryInfo](https://vueuse.org/core/useMemory/): exposes readonly data
-- [useEyeDropper](https://vueuse.org/core/useEyeDropper/): exposes readonly data and functions
+- [useMediaControls](https://vueuse.org/core/useMediaControls/): раскрывает функции
+- [useMemoryInfo](https://vueuse.org/core/useMemory/): раскрывает данные, доступные только для чтения
+- [useEyeDropper](https://vueuse.org/core/useEyeDropper/): раскрывает функции и данные, доступные только для чтения
 
-## Setup Stores
+## Setup-хранилища %{#setup-stores}%
 
-On the other hand, when defining a setup store, you can use almost any composable since every property gets discerned into state, action, or getter:
+С другой стороны, при определении setup-хранилища можно использовать практически любой composable, так как каждое свойство распознается как состояние, действие или геттер:
 
 ```ts
 import { defineStore, skipHydrate } from 'pinia'
 import { useMediaControls } from '@vueuse/core'
 
 export const useVideoPlayer = defineStore('video', () => {
-  // we won't expose this element directly
+  // мы не будем раскрывать этот элемент напрямую
   const videoElement = ref<HTMLVideoElement>()
   const src = ref('/data/video.mp4')
   const { playing, volume, currentTime, togglePictureInPicture } =
@@ -57,11 +57,11 @@ export const useVideoPlayer = defineStore('video', () => {
 })
 ```
 
-## SSR
+## SSR %{#ssr}%
 
-When dealing with [Server Side Rendering](../ssr/index.md), you need to take care of some extra steps in order to use composables within your stores.
+При работе с [рендерингом на стороне сервера](../ssr/index.md) необходимо выполнить несколько дополнительных действий, чтобы использовать composables в своих хранилищах.
 
-In [Option Stores](#option-stores), you need to define a `hydrate()` function. This function is called when the store is instantiated on the client (the browser) when there is an initial state available at the time the store is created. The reason we need to define this function is because in such scenario, `state()` is not called.
+В [option-хранилищах](#option-stores) необходимо определить функцию `hydrate()`. Эта функция вызывается при инстанцировании хранилища на клиенте (браузере), когда на момент создания хранилища имеется начальное состояние. Причина, по которой нам необходимо определить эту функцию, заключается в том, что в таком сценарии функция `state()` не вызывается.
 
 ```ts
 import { defineStore, skipHydrate } from 'pinia'
@@ -73,14 +73,14 @@ export const useAuthStore = defineStore('auth', {
   }),
 
   hydrate(state, initialState) {
-    // in this case we can completely ignore the initial state since we
-    // want to read the value from the browser
+    // в этом случае мы можем полностью игнорировать начальное состояние, поскольку мы
+    // хотим прочитать значение из браузера
     state.user = useLocalStorage('pinia/auth/login', 'bob')
   },
 })
 ```
 
-In [Setup Stores](#setup-stores), you need to use a helper named `skipHydrate()` on any state property that shouldn't be picked up from the initial state. Differently from option stores, setup stores cannot just _skip calling `state()`_, so we mark properties that cannot be hydrated with `skipHydrate()`. Note that this only applies to writable reactive properties:
+В [setup-хранилищах](#setup-stores) необходимо использовать помощник `skipHydrate()` для любого свойства состояния, которое не должно быть подхвачено из начального состояния. В отличии от option-хранилищ, setup-хранилища не могут просто _пропустить вызов `state()`_, поэтому мы помечаем свойства, которые не могут быть гидратированы, с помощью `skipHydrate()`. Обратите внимание, что это относится только к записываемым реактивным свойствам:
 
 ```ts
 import { defineStore, skipHydrate } from 'pinia'
@@ -92,8 +92,8 @@ export const useColorStore = defineStore('colors', () => {
   // ...
   return {
     lastColor: skipHydrate(lastColor), // Ref<string>
-    open, // Function
-    isSupported, // boolean (not even reactive)
+    open, // Функция
+    isSupported, // boolean (даже не реактивное)
   }
 })
 ```
