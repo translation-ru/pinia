@@ -15,7 +15,7 @@ Pinia можно использовать даже если вы не испол
 ```js
 import { mapStores } from 'pinia'
 
-// даны два магазина со следующими ids
+// даны два хранилища со следующими ids
 const useUserStore = defineStore('user', {
   // ...
 })
