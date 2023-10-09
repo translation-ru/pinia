@@ -1,16 +1,16 @@
-# Testing stores
+# Тестирование хранилищ %{#testing-stores}%
 
-Stores will, by design, be used at many places and can make testing much harder than it should be. Fortunately, this doesn't have to be the case. We need to take care of three things when testing stores:
+Хранилища, по своей сути, будут использоваться во многих местах и могут сделать тестирование намного сложнее, чем это должно быть. К счастью, это необязательно так. При тестировании хранилищ нам нужно позаботиться о трех вещах:
 
-- The `pinia` instance: Stores cannot work without it
-- `actions`: most of the time, they contain the most complex logic of our stores. Wouldn't it be nice if they were mocked by default?
-- Plugins: If you rely on plugins, you will have to install them for tests too
+- Экземпляр `pinia`: Хранилища не могут работать без него
+- `actions`: чаще всего они содержат самую сложную логику наших хранилищ. Было бы неплохо, если бы они имитировались (mock) по умолчанию?
+- Плагины: Если вы полагаетесь на плагины, вам придется установить их и для тестов
 
-Depending on what or how you are testing, we need to take care of these three things differently.
+В зависимости от того, что или как вы тестируете, мы должны позаботиться об этих трех вещах по-разному.
 
-## Unit testing a store
+## Модульное (unit) тестирование хранилища %{#unit-testing-a-store}%
 
-To unit test a store, the most important part is creating a `pinia` instance:
+Для проведения модульного тестирования хранилищв наиболее важной частью является создание экземпляра `pinia`:
 
 ```js
 // stores/counter.spec.ts
@@ -19,8 +19,8 @@ import { useCounterStore } from '../src/stores/counter'
 
 describe('Counter Store', () => {
   beforeEach(() => {
-    // creates a fresh pinia and make it active so it's automatically picked
-    // up by any useStore() call without having to pass it to it:
+    // создаем новый экземпляр pinia и делаем его активным, чтобы он автоматически
+    // подхватывается любым вызовом useStore() без необходимости его передачи:
     // `useStore(pinia)`
     setActivePinia(createPinia())
   })
@@ -40,16 +40,16 @@ describe('Counter Store', () => {
 })
 ```
 
-If you have any store plugins, there is one important thing to know: **plugins won't be used until `pinia` is installed in an App**. This can be solved by creating an empty App or a fake one:
+Если у вас есть плагины хранилища, необходимо знать одну важную вещь: **плагины не будут использоваться до тех пор, пока `pinia` не будет установлена в App**. Эту проблему можно решить, создав пустое или поддельное приложение:
 
 ```js
 import { setActivePinia, createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { somePlugin } from '../src/stores/plugin'
 
-// same code as above...
+// тот же код, что и выше...
 
-// you don't need to create one app per test
+// нет необходимости создавать отдельное приложение для каждого теста
 const app = createApp({})
 beforeEach(() => {
   const pinia = createPinia().use(somePlugin)
@@ -58,22 +58,22 @@ beforeEach(() => {
 })
 ```
 
-## Unit testing components
+## Модульное (unit) тестирование компонентов %{#unit-testing-components}%
 
-This can be achieved with `createTestingPinia()`, which returns a pinia instance designed to help unit tests components.
+Этого можно достичь с помощью функции `createTestingPinia()`, которая возвращает экземпляр pinia, разработанный для облегчения модульного тестирования компонентов.
 
-Start by installing `@pinia/testing`:
+Начните с установки `@pinia/testing`:
 
 ```shell
 npm i -D @pinia/testing
 ```
 
-And make sure to create a testing pinia in your tests when mounting a component:
+И не забудьте при монтировании компонента создать в своих тестах тестовую pinia:
 
 ```js
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
-// import any store you want to interact with in tests
+// импортируйте любое хранилище, с которым вы хотите взаимодействовать в тестах
 import { useSomeStore } from '@/stores/myStore'
 
 const wrapper = mount(Counter, {
@@ -82,27 +82,27 @@ const wrapper = mount(Counter, {
   },
 })
 
-const store = useSomeStore() // uses the testing pinia!
+const store = useSomeStore() // используется тестовая pinia!
 
-// state can be directly manipulated
+// состояние можно менять напрямую
 store.name = 'my new name'
-// can also be done through patch
+// также можно сделать это через patch
 store.$patch({ name: 'new name' })
 expect(store.name).toBe('new name')
 
-// actions are stubbed by default, meaning they don't execute their code by default.
-// See below to customize this behavior.
+// Действия по умолчанию являются заглушками (stubs), то есть по умолчанию не выполняют свой код.
+// Как настроить это поведение, смотрите ниже.
 store.someAction()
 
 expect(store.someAction).toHaveBeenCalledTimes(1)
 expect(store.someAction).toHaveBeenLastCalledWith()
 ```
 
-Please note that if you are using Vue 2, `@vue/test-utils` requires a [slightly different configuration](#Unit-test-components-Vue-2-).
+Обратите внимание, что если вы используете Vue 2, то для `@vue/test-utils` требуется [немного другая конфигурация](#Unit-test-components-Vue-2-).
 
-### Initial State
+### Начальное состояние %{#initial-state}%
 
-You can set the initial state of **all of your stores** when creating a testing pinia by passing an `initialState` object. This object will be used by the testing pinia to _patch_ stores when they are created. Let's say you want to initialize the state of this store:
+Вы можете установить начальное состояние всех ваших хранилищ при создании тестовой pinia, передав объект `initialState`. Этот объект будет использоваться тестовой pinia для _изменения (patch)_ хранилищ при их создании. Допустим, вы хотите инициализировать состояние этого хранилища:
 
 ```ts
 import { defineStore } from 'pinia'
@@ -113,31 +113,31 @@ const useCounterStore = defineStore('counter', {
 })
 ```
 
-Since the store is named _"counter"_, you need to add a matching object to `initialState`:
+Поскольку хранилище называется _"counter"_, вам нужно добавить соответствующий объект в `initialState`:
 
 ```ts
-// somewhere in your test
+// где-нибудь в вашем тесте
 const wrapper = mount(Counter, {
   global: {
     plugins: [
       createTestingPinia({
         initialState: {
-          counter: { n: 20 }, // start the counter at 20 instead of 0
+          counter: { n: 20 }, // запускаем счетчик не с 0, а с 20
         },
       }),
     ],
   },
 })
 
-const store = useSomeStore() // uses the testing pinia!
+const store = useSomeStore() // используется тестовая pinia!
 store.n // 20
 ```
 
-### Customizing behavior of actions
+### Настройка поведения действий %{#сustomizing-behavior-of-actions}%
 
-`createTestingPinia` stubs out all store actions unless told otherwise. This allows you to test your components and stores separately.
+`createTestingPinia` подменяет заглушками (stubs) все действия хранилища, если не указано обратное. Это позволяет вам проводить тестирование ваших компонентов и хранилищ отдельно друг от друга.
 
-If you want to revert this behavior and normally execute your actions during tests, specify `stubActions: false` when calling `createTestingPinia`:
+Если вы хотите отменить это поведение и нормально выполнять ваши действия во время тестов, укажите `stubActions: false` при вызове `createTestingPinia`:
 
 ```js
 const wrapper = mount(Counter, {
@@ -148,30 +148,30 @@ const wrapper = mount(Counter, {
 
 const store = useSomeStore()
 
-// Now this call WILL execute the implementation defined by the store
+// Теперь этот вызов БУДЕТ выполнять реализацию, определенную в хранилище
 store.someAction()
 
-// ...but it's still wrapped with a spy, so you can inspect calls
+// ...но он все еще обернут шпионом (spy), так что вы можете проверять вызовы
 expect(store.someAction).toHaveBeenCalledTimes(1)
 ```
 
-### Specifying the createSpy function
+### Указание функции createSpy %{#specifying-the-createspy-function}%
 
-When using Jest, or vitest with `globals: true`, `createTestingPinia` automatically stubs actions using the spy function based on the existing test framework (`jest.fn` or `vitest.fn`). If you are using a different framework, you'll need to provide a [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy) option:
+При использовании Jest или vitest с `globals: true`, `createTestingPinia` автоматически создает заглушки (stubs) действий с помощью функции шпионов (spy) на основе существующего тестового фреймворка (`jest.fn` или `vitest.fn`). Если вы используете другой фреймворк, то вам необходимо указать опцию [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy):
 
 ```js
 import sinon from 'sinon'
 
 createTestingPinia({
-  createSpy: sinon.spy, // use sinon's spy to wrap actions
+  createSpy: sinon.spy, // использование шпиона из sinon для обертывания действий
 })
 ```
 
-You can find more examples in [the tests of the testing package](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts).
+Другие примеры можно найти в [тестах пакета тестирования](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts).
 
-### Mocking getters
+### Имитация (mocking) геттеров %{#mocking-getters}%
 
-By default, any getter will be computed like regular usage but you can manually force a value by setting the getter to anything you want:
+По умолчанию любой геттер будет вычисляться как и при обычном использовании, но вы можете вручную принудительно задать значение, установив геттер в любое нужное вам значение:
 
 ```ts
 import { defineStore } from 'pinia'
@@ -187,23 +187,23 @@ const useCounterStore = defineStore('counter', {
 const pinia = createTestingPinia()
 const counter = useCounterStore(pinia)
 
-counter.double = 3 // 🪄 getters are writable only in tests
+counter.double = 3 // 🪄 геттеры доступны для записи только в тестах
 
-// set to undefined to reset the default behavior
-// @ts-expect-error: usually it's a number
+// установите значение undefined, чтобы сбросить стандартное поведение
+// @ts-expect-error: обычно это число
 counter.double = undefined
 counter.double // 2 (=1 x 2)
 ```
 
-### Pinia Plugins
+### Плагины Pinia %{#pinia-plugins}%
 
-If you have any pinia plugins, make sure to pass them when calling `createTestingPinia()` so they are properly applied. **Do not add them with `testingPinia.use(MyPlugin)`** like you would do with a regular pinia:
+Если у вас есть какие-либо плагины pinia, обязательно передайте их при вызове `createTestingPinia()`, чтобы они были правильно применены. **Не добавляйте их с помощью `testingPinia.use(MyPlugin)`**, как это было бы сделано с обычным pinia:
 
 ```js
 import { createTestingPinia } from '@pinia/testing'
 import { somePlugin } from '../src/stores/plugin'
 
-// inside some test
+// внутри какого-нибудь теста
 const wrapper = mount(Counter, {
   global: {
     plugins: [
@@ -216,13 +216,13 @@ const wrapper = mount(Counter, {
 })
 ```
 
-## E2E tests
+## E2E-тесты %{#e2e-tests}%
 
-When it comes to Pinia, you don't need to change anything for E2E tests, that's the whole point of these tests! You could maybe test HTTP requests, but that's way beyond the scope of this guide 😄.
+Что касается Pinia, вам не нужно ничего менять для E2E-тестов, в этом вся суть этих тестов! Вы можете, возможно, тестировать HTTP-запросы, но это выходит за рамки данного руководства 😄.
 
-## Unit test components (Vue 2)
+## Модульное (unit) тестирование компонентов (Vue 2) %{#unit-test-components-vue-2}%
 
-When using [Vue Test Utils 1](https://v1.test-utils.vuejs.org/), install Pinia on a `localVue`:
+При использовании [Vue Test Utils 1](https://v1.test-utils.vuejs.org/) установите Pinia на `localVue`:
 
 ```js
 import { PiniaVuePlugin } from 'pinia'
@@ -237,5 +237,5 @@ const wrapper = mount(Counter, {
   pinia: createTestingPinia(),
 })
 
-const store = useSomeStore() // uses the testing pinia!
+const store = useSomeStore() // используется тестовая pinia!
 ```
