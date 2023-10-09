@@ -124,7 +124,7 @@ export const ruConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
               link: '/cookbook/migration-vuex.html',
             },
             {
-              text: 'Hot Module Replacement',
+              text: 'Горячая замена модулей',
               link: '/cookbook/hot-module-replacement.html',
             },
             {
