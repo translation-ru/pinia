@@ -1,8 +1,8 @@
-# VS Code Snippets
+# Сниппеты VS Code %{#vs-code-snippets}%
 
-These are some snippets that I use in VS Code to make my life easier.
+Вот некоторые сниппеты, которые я использую в VS Code для облегчения своей жизни.
 
-Manage user snippets with <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd> / <kbd>⇧</kbd> <kbd>⌃</kbd> <kbd>P</kbd> and then `Snippets: Configure User Snippets`.
+Управляйте сниппетами <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>P</kbd> / <kbd>⇧</kbd> <kbd>⌃</kbd> <kbd>P</kbd> и далее `Snippets: Configure User Snippets`.
 
 ```json
 {
