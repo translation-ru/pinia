@@ -2,9 +2,9 @@
 editLink: false
 ---
 
-API Documentation
+Документация API
 
-# API Documentation
+# Документация API
 
 ## Modules
 

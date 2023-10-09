@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / MutationType
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / MutationType
 
 # Enumeration: MutationType
 

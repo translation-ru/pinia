@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationPatchObject
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationPatchObject
 
 # Interface: SubscriptionCallbackMutationPatchObject<S\>
 

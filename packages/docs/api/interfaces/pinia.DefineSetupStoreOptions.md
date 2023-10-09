@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / DefineSetupStoreOptions
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineSetupStoreOptions
 
 # Interface: DefineSetupStoreOptions<Id, S, G, A\>
 

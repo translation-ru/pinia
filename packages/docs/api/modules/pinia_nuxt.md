@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / @pinia/nuxt
+[Документация API](../index.md) / @pinia/nuxt
 
 # Module: @pinia/nuxt
 

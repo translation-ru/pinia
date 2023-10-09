@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / StoreDefinition
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / StoreDefinition
 
 # Interface: StoreDefinition<Id, S, G, A\>
 
