@@ -10,7 +10,7 @@ Pinia поддерживает горячую замену модулей (Hot M
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
 const useAuth = defineStore('auth', {
-  // options...
+  // опции...
 })
 
 // убедитесь, что передано правильное определение хранилища,
