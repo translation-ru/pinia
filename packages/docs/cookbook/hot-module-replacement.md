@@ -1,9 +1,9 @@
-# HMR (Hot Module Replacement)
+# Горячая замена модулей %{#hmr-hot-module-replacement}%
 
-Pinia supports Hot Module replacement so you can edit your stores and interact with them directly in your app without reloading the page, allowing you to keep the existing state, add, or even remove state, actions, and getters.
+Pinia поддерживает горячую замену модулей (Hot Module Replacement)), поэтому вы можете редактировать свои хранилища и взаимодействовать с ними напрямую в вашем приложении без перезагрузки страницы. Это позволяет вам сохранить текущее состояние, добавлять или даже удалять состояние, действия и геттеры.
 
-At the moment, only [Vite](https://vitejs.dev/) is officially supported but any bundler implementing the `import.meta.hot` spec should work (e.g. [webpack](https://webpack.js.org/api/module-variables/#importmetawebpackhot) seems to use `import.meta.webpackHot` instead of `import.meta.hot`).
-You need to add this snippet of code next to any store declaration. Let's say you have three stores: `auth.js`, `cart.js`, and `chat.js`, you will have to add (and adapt) this after the creation of the _store definition_:
+На данный момент официально поддерживается только [Vite](https://vitejs.dev/), но любой инструмент сборки, реализующий спецификацию `import.meta.hot`, должен работать (например, [webpack](https://webpack.js.org/api/module-variables/#importmetawebpackhot) использует `import.meta.webpackHot` вместо `import.meta.hot`).
+Вам нужно добавить этот фрагмент кода рядом с объявлением любого хранилища. Допустим, у вас есть три хранилища: `auth.js`, `cart.js` и `chat.js`. Вы должны добавить (и адаптировать) следующий код после создания _определения хранилища_:
 
 ```js
 // auth.js
@@ -13,7 +13,8 @@ const useAuth = defineStore('auth', {
   // options...
 })
 
-// make sure to pass the right store definition, `useAuth` in this case.
+// убедитесь, что передано правильное определение хранилища,
+// в данном случае `useAuth`
 if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useAuth, import.meta.hot))
 }
