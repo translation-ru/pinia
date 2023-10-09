@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / pinia
+[Документация API](../index.md) / pinia
 
 # Module: pinia
 

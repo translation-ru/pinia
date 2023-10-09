@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsInPlugin
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsInPlugin
 
 # Interface: DefineStoreOptionsInPlugin<Id, S, G, A\>
 

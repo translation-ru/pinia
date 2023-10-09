@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / StoreProperties
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / StoreProperties
 
 # Interface: StoreProperties<Id\>
 

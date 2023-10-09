@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / \_StoreWithState
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / \_StoreWithState
 
 # Interface: \_StoreWithState<Id, S, G, A\>
 

@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / @pinia/testing
+[Документация API](../index.md) / @pinia/testing
 
 # Module: @pinia/testing
 

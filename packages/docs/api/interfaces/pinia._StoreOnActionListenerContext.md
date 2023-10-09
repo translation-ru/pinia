@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / \_StoreOnActionListenerContext
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / \_StoreOnActionListenerContext
 
 # Interface: \_StoreOnActionListenerContext<Store, ActionName, A\>
 

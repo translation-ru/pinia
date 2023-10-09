@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / PiniaPluginContext
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / PiniaPluginContext
 
 # Interface: PiniaPluginContext<Id, S, G, A\>
 

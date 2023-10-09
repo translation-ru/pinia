@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsBase
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsBase
 
 # Interface: DefineStoreOptionsBase<S, Store\>
 

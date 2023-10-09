@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [pinia](../modules/pinia.md) / PiniaCustomProperties
+[Документация API](../index.md) / [pinia](../modules/pinia.md) / PiniaCustomProperties
 
 # Interface: PiniaCustomProperties<Id, S, G, A\>
 

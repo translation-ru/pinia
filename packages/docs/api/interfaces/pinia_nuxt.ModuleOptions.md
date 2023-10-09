@@ -2,7 +2,7 @@
 editLink: false
 ---
 
-[API Documentation](../index.md) / [@pinia/nuxt](../modules/pinia_nuxt.md) / ModuleOptions
+[Документация API](../index.md) / [@pinia/nuxt](../modules/pinia_nuxt.md) / ModuleOptions
 
 # Interface: ModuleOptions
 
