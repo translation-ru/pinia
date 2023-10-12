@@ -19,9 +19,9 @@ import { useCounterStore } from '../src/stores/counter'
 
 describe('Counter Store', () => {
   beforeEach(() => {
-    // создаем новый экземпляр pinia и делаем его активным, чтобы он автоматически
-    // подхватывается любым вызовом useStore() без необходимости его передачи:
-    // `useStore(pinia)`
+    // создаем новый экземпляр pinia и делаем его активным,
+    // чтобы он автоматически подхватывается любым вызовом useStore()
+    // без необходимости его передачи: `useStore(pinia)`
     setActivePinia(createPinia())
   })
 
