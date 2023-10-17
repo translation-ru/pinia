@@ -4,26 +4,25 @@ editLink: false
 
 [Документация API](../index.md) / [@pinia/testing](../modules/pinia_testing.md) / TestingPinia
 
-# Interface: TestingPinia
+# Интерфейс: TestingPinia
 
 [@pinia/testing](../modules/pinia_testing.md).TestingPinia
 
-Pinia instance specifically designed for testing. Extends a regular
-`Pinia` instance with test specific properties.
+Экземпляр Pinia, специально разработанный для тестирования. Расширяет обычный `Pinia` со специфическими для тестирования свойствами.
 
-## Hierarchy
+## Иерархия
 
 - [`Pinia`](pinia.Pinia.md)
 
   ↳ **`TestingPinia`**
 
-## Properties
+## Свойства
 
 ### app
 
 • **app**: `App`<`any`\>
 
-App used by Pinia
+Приложение, используемое Pinia
 
 ___
 
@@ -31,21 +30,21 @@ ___
 
 • **install**: (`app`: `App`<`any`\>) => `void`
 
-#### Type declaration
+#### Объявление типа
 
 ▸ (`app`): `void`
 
-##### Parameters
+##### Параметры
 
-| Name | Type |
-| :------ | :------ |
-| `app` | `App`<`any`\> |
+| Название | Тип           |
+| :------- | :------------ |
+| `app`    | `App`<`any`\> |
 
-##### Returns
+##### Возвращает
 
 `void`
 
-#### Inherited from
+#### Наследуется от
 
 [Pinia](pinia.Pinia.md).[install](pinia.Pinia.md#install)
 
@@ -55,30 +54,30 @@ ___
 
 • **state**: `Ref`<`Record`<`string`, [`StateTree`](../modules/pinia.md#statetree)\>\>
 
-root state
+корневое состояние
 
-#### Inherited from
+#### Наследуется от
 
 [Pinia](pinia.Pinia.md).[state](pinia.Pinia.md#state)
 
-## Methods
+## Методы
 
 ### use
 
 ▸ **use**(`plugin`): [`Pinia`](pinia.Pinia.md)
 
-Adds a store plugin to extend every store
+Добавляет плагин хранилища для расширения каждого из хранилищ
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `plugin` | [`PiniaPlugin`](pinia.PiniaPlugin.md) | store plugin to add |
+| Название | Тип                                   | Описание                        |
+| :------- | :------------------------------------ | :------------------------------ |
+| `plugin` | [`PiniaPlugin`](pinia.PiniaPlugin.md) | плагин хранилища для добавления |
 
-#### Returns
+#### Возвращает
 
 [`Pinia`](pinia.Pinia.md)
 
-#### Inherited from
+#### Наследуется от
 
 [Pinia](pinia.Pinia.md).[use](pinia.Pinia.md#use)

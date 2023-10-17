@@ -4,19 +4,19 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / MutationType
 
-# Enumeration: MutationType
+# Перечисление: MutationType
 
 [pinia](../modules/pinia.md).MutationType
 
-Possible types for SubscriptionCallback
+Возможные типы для SubscriptionCallback
 
-## Enumeration Members
+## Члены перечисления
 
 ### direct
 
 • **direct** = ``"direct"``
 
-Direct mutation of the state:
+Прямое изменение состояния:
 
 - `store.name = 'new name'`
 - `store.$state.name = 'new name'`
@@ -28,7 +28,7 @@ ___
 
 • **patchFunction** = ``"patch function"``
 
-Mutated the state with `$patch` and a function
+Изменение состояния с помощью `$patch` и функции
 
 - `store.$patch(state => state.name = 'newName')`
 
@@ -38,6 +38,6 @@ ___
 
 • **patchObject** = ``"patch object"``
 
-Mutated the state with `$patch` and an object
+Изменение состояния с помощью `$patch` и объекта
 
 - `store.$patch({ name: 'newName' })`

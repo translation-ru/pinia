@@ -6,7 +6,7 @@ editLink: false
 
 # Документация API
 
-## Modules
+## Модули
 
 - [@pinia/nuxt](modules/pinia_nuxt.md)
 - [@pinia/testing](modules/pinia_testing.md)
