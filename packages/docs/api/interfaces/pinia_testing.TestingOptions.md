@@ -4,43 +4,41 @@ editLink: false
 
 [Документация API](../index.md) / [@pinia/testing](../modules/pinia_testing.md) / TestingOptions
 
-# Interface: TestingOptions
+# Интерфейс: TestingOptions
 
 [@pinia/testing](../modules/pinia_testing.md).TestingOptions
 
-## Properties
+## Свойства
 
 ### createSpy
 
-• `Optional` **createSpy**: (`fn?`: (...`args`: `any`[]) => `any`) => (...`args`: `any`[]) => `any`
+• `Опционально` **createSpy**: (`fn?`: (...`args`: `any`[]) => `any`) => (...`args`: `any`[]) => `any`
 
-#### Type declaration
+#### Объявление типа
 
 ▸ (`fn?`): (...`args`: `any`[]) => `any`
 
-Function used to create a spy for actions and `$patch()`. Pre-configured
-with `jest.fn` in Jest projects or `vi.fn` in Vitest projects if
-`globals: true` is set.
+Функция используется для создания шпиона для действий и `$patch()`. Предварительно сконфигурированная с помощью `jest.fn` в проектах Jest или `vi.fn` в проектах Vitest, если установлено значение `globals: true`.
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fn?` | (...`args`: `any`[]) => `any` |
+| Название | Тип                           |
+| :------- | :---------------------------- |
+| `fn?`    | (...`args`: `any`[]) => `any` |
 
-##### Returns
+##### Возвращает
 
 `fn`
 
 ▸ (`...args`): `any`
 
-##### Parameters
+##### Параметры
 
-| Name | Type |
-| :------ | :------ |
+| Название  | Тип     |
+| :-------- | :------ |
 | `...args` | `any`[] |
 
-##### Returns
+##### Возвращает
 
 `any`
 
@@ -48,12 +46,9 @@ ___
 
 ### fakeApp
 
-• `Optional` **fakeApp**: `boolean`
+• `Опционально` **fakeApp**: `boolean`
 
-Creates an empty App and calls `app.use(pinia)` with the created testing
-pinia. This allows you to use plugins while unit testing stores as
-plugins **will wait for pinia to be installed in order to be executed**.
-Defaults to false.
+Создает пустое приложение App и вызывает `app.use(pinia)` с созданной для тестирования pinia. Это позволяет использовать подключаемые модули при сохранении модульного тестирования, так как плагины **будут ожидать установки pinia для выполнения**. По умолчанию имеет значение false.
 
 ___
 
@@ -61,45 +56,37 @@ ___
 
 • `Optional` **initialState**: [`StateTree`](../modules/pinia.md#statetree)
 
-Allows defining a partial initial state of all your stores. This state gets applied after a store is created,
-allowing you to only set a few properties that are required in your test.
+Позволяет определить частичное начальное состояние всех ваших хранилищ. Это состояние применяется после создания хранилища, что позволяет задать только несколько свойств, необходимых для тестирования.
 
 ___
 
 ### plugins
 
-• `Optional` **plugins**: [`PiniaPlugin`](pinia.PiniaPlugin.md)[]
+• `Опционально` **plugins**: [`PiniaPlugin`](pinia.PiniaPlugin.md)[]
 
-Plugins to be installed before the testing plugin. Add any plugins used in
-your application that will be used while testing.
+Плагины, которые должны быть установлены перед тестируемым плагином. Добавьте все плагины, используемые в
+в вашем приложении, которые будут использоваться при тестировании.
 
 ___
 
 ### stubActions
 
-• `Optional` **stubActions**: `boolean`
+• `Опционально` **stubActions**: `boolean`
 
-When set to false, actions are only spied, but they will still get executed. When
-set to true, actions will be replaced with spies, resulting in their code
-not being executed. Defaults to true. NOTE: when providing `createSpy()`,
-it will **only** make the `fn` argument `undefined`. You still have to
-handle this in `createSpy()`.
+Если установлено значение false, то действия только прослушиваются, но все равно будут выполняться. Когда установлено значение true, действия будут заменены на шпионов, в результате чего их код не будет выполняться. По умолчанию имеет значение true. ПРИМЕЧАНИЕ: при выполнении функции `createSpy()`, она **только** сделает аргумент `fn` `undefined`. Вы все равно должны обрабатывать это в `createSpy()`.
 
 ___
 
 ### stubPatch
 
-• `Optional` **stubPatch**: `boolean`
+• `Опционально` **stubPatch**: `boolean`
 
-When set to true, calls to `$patch()` won't change the state. Defaults to
-false. NOTE: when providing `createSpy()`, it will **only** make the `fn`
-argument `undefined`. You still have to handle this in `createSpy()`.
+Если установлено значение true, вызовы `$patch()` не будут изменять состояние. По умолчанию имеет значение false. ПРИМЕЧАНИЕ: при предоставлении функции `createSpy()` она **только** сделает аргумент `fn` аргумент `undefined`. Вы все равно должны обработать его в `createSpy()`.
 
 ___
 
 ### stubReset
 
-• `Optional` **stubReset**: `boolean`
+• `Опционально` **stubReset**: `boolean`
 
-When set to true, calls to `$reset()` won't change the state. Defaults to
-false.
+Если установлено значение true, вызовы `$reset()` не будут изменять состояние. По умолчанию имеет значение false.

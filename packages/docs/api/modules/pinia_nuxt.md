@@ -4,26 +4,26 @@ editLink: false
 
 [Документация API](../index.md) / @pinia/nuxt
 
-# Module: @pinia/nuxt
+# Модуль: @pinia/nuxt
 
-## Interfaces
+## Интерфейсы
 
 - [ModuleOptions](../interfaces/pinia_nuxt.ModuleOptions.md)
 
-## Functions
+## Функции
 
 ### default
 
 ▸ **default**(`this`, `inlineOptions`, `nuxt`): `_ModuleSetupReturn`
 
-#### Parameters
+#### Параметры
 
-| Name | Type |
-| :------ | :------ |
-| `this` | `void` |
+| Название        | Тип                                                          |
+| :-------------- | :----------------------------------------------------------- |
+| `this`          | `void`                                                       |
 | `inlineOptions` | [`ModuleOptions`](../interfaces/pinia_nuxt.ModuleOptions.md) |
-| `nuxt` | `Nuxt` |
+| `nuxt`          | `Nuxt`                                                       |
 
-#### Returns
+#### Возвращает
 
 `_ModuleSetupReturn`
