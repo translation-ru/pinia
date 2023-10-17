@@ -61,22 +61,27 @@ const { data } = await useAsyncData('user', () => store.fetchUser())
 
 ## Автоматические импорты %{#auto-imports}%
 
-По умолчанию `@pinia/nuxt` предоставляет один автоматический импорт: `usePinia()`, который аналогичен `getActivePinia()`, но лучше работает с Nuxt. Вы можете добавить автоматические импорты, чтобы упростить себе жизнь:
+По умолчанию `@pinia/nuxt` предоставляет несколько автоматических импортов:
 
-```js
-// nuxt.config.js
+- `usePinia()`, похоже на `getActivePinia()`, но лучше работает с Nuxt. Вы можете добавить автоматические импорты, чтобы упростить свою жизнь:
+- `defineStore()` для определения хранилищ
+- `storeToRefs()`когда необходимо извлечь отдельные ref-ссылки из хранилища
+- `acceptHMRUpdate()` для [горячей замены модулей](../cookbook/hot-module-replacement.md)
+
+Также автоматически импортируются **все хранилища**, определенные в вашей папке `stores`. Однако вложенные хранилища не ищутся. Вы можете настроить это поведение, установив параметр `storeDirs`:
+
+```ts
+// nuxt.config.ts
 export default defineNuxtConfig({
   // ... другие параметры
   modules: ['@pinia/nuxt'],
   pinia: {
-    autoImports: [
-      // автоматически импортировать `defineStore`
-      'defineStore', // import { defineStore } from 'pinia'
-      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
-    ],
+    storeDirs: ['./stores/**', './custom-folder/stores/**'],
   },
 })
 ```
+
+Обратите внимание, что пути папок относительны к корню вашего проекта. Если вы измените параметр `srcDir`, вам также придется изменить пути папок.
 
 ## Nuxt 2 без bridge %{#nuxt-2-without-bridge}%
 
