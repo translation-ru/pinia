@@ -99,7 +99,7 @@ export const useSearchFilters = defineStore('search-filters', () => {
 
 Как и с [Composition API и Options API в Vue](https://vuejs.org/guide/introduction.html#which-to-choose), выбирайте тот подход, с которым вы чувствуете себя наиболее комфортно. Если вы не уверены, попробуйте сначала [option-хранилища](#option-stores).
 
-## Using the store %{#using-the-store}%
+## Использование хранилища %{#using-the-store}%
 
 Мы _определяем_ хранилище, потому что хранилище не будет создано, пока не будет вызвано `use...Store()` внутри `<script setup>` компонента (или внутри `setup()` **как и во всех composables**):
 
