@@ -4,36 +4,36 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / \_StoreWithState
 
-# Interface: \_StoreWithState<Id, S, G, A\>
+# Интерфейс: \_StoreWithState<Id, S, G, A\>
 
 [pinia](../modules/pinia.md)._StoreWithState
 
-Base store with state and functions. Should not be used directly.
+Базовое хранилище с состоянием и функциями. Не должно использоваться напрямую.
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#statetree) |
-| `G` | `G` |
-| `A` | `A` |
+| Название | Тип                                                  |
+| :------- | :--------------------------------------------------- |
+| `Id`     | extends `string`                                     |
+| `S`      | extends [`StateTree`](../modules/pinia.md#statetree) |
+| `G`      | `G`                                                  |
+| `A`      | `A`                                                  |
 
-## Hierarchy
+## Иерархия
 
 - [`StoreProperties`](pinia.StoreProperties.md)<`Id`\>
 
   ↳ **`_StoreWithState`**
 
-## Properties
+## Свойства
 
 ### $id
 
 • **$id**: `Id`
 
-Unique identifier of the store
+Уникальный идентификатор хранилища
 
-#### Inherited from
+#### Наследуется от
 
 [StoreProperties](pinia.StoreProperties.md).[$id](pinia.StoreProperties.md#$id)
 
@@ -43,7 +43,7 @@ ___
 
 • **$state**: `UnwrapRef`<`S`\> & [`PiniaCustomStateProperties`](pinia.PiniaCustomStateProperties.md)<`S`\>
 
-State of the Store. Setting it will internally call `$patch()` to update the state.
+Состояние хранилища. Установка этого параметра приведет к внутреннему вызову `$patch()` для обновления состояния.
 
 ___
 
@@ -51,28 +51,21 @@ ___
 
 • **\_customProperties**: `Set`<`string`\>
 
-Used by devtools plugin to retrieve properties added with plugins. Removed
-in production. Can be used by the user to add property keys of the store
-that should be displayed in devtools.
+Используется плагином devtools для получения свойств, добавленных с помощью плагинов. Удаляется при production сборке. Может использоваться пользователем для добавления ключей свойств хранилища, которые должны отображаться в devtools.
 
-#### Inherited from
+#### Наследуется от
 
 [StoreProperties](pinia.StoreProperties.md).[_customProperties](pinia.StoreProperties.md#_customproperties)
 
-## Methods
+## Методы
 
 ### $dispose
 
 ▸ **$dispose**(): `void`
 
-Stops the associated effect scope of the store and remove it from the store
-registry. Plugins can override this method to cleanup any added effects.
-e.g. devtools plugin stops displaying disposed stores from devtools.
-Note this doesn't delete the state of the store, you have to do it manually with
-`delete pinia.state.value[store.$id]` if you want to. If you don't and the
-store is used again, it will reuse the previous state.
+Этот метод останавливает связанную область эффекта хранилища и удаляет его из реестра хранилищ. Плагины могут переопределить этот метод, чтобы выполнить очистку добавленных эффектов. Например, плагин devtools прекращает отображение удаленных хранилищ в devtools. Обратите внимание, что это не удаляет состояние хранилища, и вам придется сделать это вручную с помощью `delete pinia.state.value[store.$id]`, если вы хотите очистить состояние. Если вы этого не сделаете и хранилище будет использовано снова, оно будет использовать предыдущее состояние.
 
-#### Returns
+#### Возвращает
 
 `void`
 
@@ -82,85 +75,78 @@ ___
 
 ▸ **$onAction**(`callback`, `detached?`): () => `void`
 
-Setups a callback to be called every time an action is about to get
-invoked. The callback receives an object with all the relevant information
-of the invoked action:
-- `store`: the store it is invoked on
-- `name`: The name of the action
-- `args`: The parameters passed to the action
+Устанавливает коллбек, который будет вызываться каждый раз, когда действие должно быть вызвано.
+Коллбек получает объект, содержащий всю необходимую информацию
+о вызываемом действии:
+- `store`: хранилище, для которого она вызывается
+- `name`: Название действия
+- `args`: Параметры, передаваемые действию
 
-On top of these, it receives two functions that allow setting up a callback
-once the action finishes or when it fails.
+В дополнение к ним он получает две функции, позволяющие задать коллбек
+по завершению действия или при его неудаче.
 
-It also returns a function to remove the callback. Note than when calling
-`store.$onAction()` inside of a component, it will be automatically cleaned
-up when the component gets unmounted unless `detached` is set to true.
+Также возвращается функция для удаления коллбека. Обратите внимание, что при вызове `store.$onAction()` внутри компонента, он автоматически очищается, когда компонент размонтируется, если только параметр `detached` не установлен в true.
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | [`StoreOnActionListener`](../modules/pinia.md#storeonactionlistener)<`Id`, `S`, `G`, `A`\> | callback called before every action |
-| `detached?` | `boolean` | detach the subscription from the context this is called from |
+| Название    | Тип                                                                                        | Описание                                                    |
+| :---------- | :----------------------------------------------------------------------------------------- | :---------------------------------------------------------- |
+| `callback`  | [`StoreOnActionListener`](../modules/pinia.md#storeonactionlistener)<`Id`, `S`, `G`, `A`\> | коллбек, вызываемый перед каждым действием                  |
+| `detached?` | `boolean`                                                                                  | открепить подписку от контекста, из которого она вызывается |
 
-#### Returns
+#### Возвращает
 
 `fn`
 
-function that removes the watcher
+функция, удаляющая наблюдателя
 
 ▸ (): `void`
 
-Setups a callback to be called every time an action is about to get
-invoked. The callback receives an object with all the relevant information
-of the invoked action:
-- `store`: the store it is invoked on
-- `name`: The name of the action
-- `args`: The parameters passed to the action
+Настройка коллбека, который будет вызываться каждый раз, когда собирается выполниться действие. Коллбек получает объект со всей необходимой информацией о выполняемом действии:
+- `store`: хранилище, для которого она вызывается
+- `name`: Название действия
+- `args`: Параметры, передаваемые действию
 
-On top of these, it receives two functions that allow setting up a callback
-once the action finishes or when it fails.
+В дополнение к ним он получает две функции, позволяющие задать коллбек, который выполнится по завершению действия или при его неудаче.
 
-It also returns a function to remove the callback. Note than when calling
-`store.$onAction()` inside of a component, it will be automatically cleaned
-up when the component gets unmounted unless `detached` is set to true.
+Также возвращается функция для удаления коллбека. Обратите внимание, что при вызове `store.$onAction()` внутри компонента, он автоматически очищается, когда компонент размонтируется, если только параметр `detached` не установлен в true.
 
-##### Returns
+##### Возвращает
 
 `void`
 
-function that removes the watcher
+функция, удаляющая наблюдателя
 
-**`Example`**
+**`Пример`**
 
 ```js
 store.$onAction(({ after, onError }) => {
- // Here you could share variables between all of the hooks as well as
- // setting up watchers and clean them up
+ // Здесь вы можете обмениваться переменными между всеми хуками, а также
+ // устанавливать наблюдателей и очищать их
  after((resolvedValue) => {
-   // can be used to cleanup side effects
-.  // `resolvedValue` is the value returned by the action, if it's a
-.  // Promise, it will be the resolved value instead of the Promise
+   // может использоваться для очистки сайд эффектов
+.  // `resolvedValue` - это значение, возвращаемое действием, если действие это
+.  // Promise, то будет разрешено значение, а не Promise
  })
  onError((error) => {
-   // can be used to pass up errors
+   // может использоваться для передачи ошибок
  })
 })
 ```
 
-**`Example`**
+**`Пример`**
 
 ```js
 store.$onAction(({ after, onError }) => {
- // Here you could share variables between all of the hooks as well as
- // setting up watchers and clean them up
+ // Здесь вы можете обмениваться переменными между всеми хуками, а также
+ // устанавливать наблюдателей и очищать их
  after((resolvedValue) => {
-   // can be used to cleanup side effects
-.  // `resolvedValue` is the value returned by the action, if it's a
-.  // Promise, it will be the resolved value instead of the Promise
+   // может использоваться для очистки сайд эффектов
+.  // `resolvedValue` - это значение, возвращаемое действием, если действие это
+.  // Promise, то будет разрешено значение, а не Promise
  })
  onError((error) => {
-   // can be used to pass up errors
+   // может использоваться для передачи ошибок
  })
 })
 ```
@@ -171,37 +157,35 @@ ___
 
 ▸ **$patch**(`partialState`): `void`
 
-Applies a state patch to current state. Allows passing nested values
+Применяет изменение (patch) к текущему состоянию. Позволяет передавать вложенные значения
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `partialState` | [`_DeepPartial`](../modules/pinia.md#_deeppartial)<`UnwrapRef`<`S`\>\> | patch to apply to the state |
+| Название       | Тип                                                                    | Описание                                       |
+| :------------- | :--------------------------------------------------------------------- | :--------------------------------------------- |
+| `partialState` | [`_DeepPartial`](../modules/pinia.md#_deeppartial)<`UnwrapRef`<`S`\>\> | изменения, которые будут применены к состоянию |
 
-#### Returns
+#### Возвращает
 
 `void`
 
 ▸ **$patch**<`F`\>(`stateMutator`): `void`
 
-Group multiple changes into one function. Useful when mutating objects like
-Sets or arrays and applying an object patch isn't practical, e.g. appending
-to an array. The function passed to `$patch()` **must be synchronous**.
+Группировка несколько изменений в одну функцию. Полезно, когда происходит изменение объектов, таких как Sets или массивы, и применение patch c объектом не является практичным, например, при добавлении элементов в массив. Функция, передаваемая в `$patch()`, **должна быть синхронной**.
 
-#### Type parameters
+#### Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `F` | extends (`state`: `UnwrapRef`<`S`\>) => `any` |
+| Название | Тип                                           |
+| :------- | :-------------------------------------------- |
+| `F`      | extends (`state`: `UnwrapRef`<`S`\>) => `any` |
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `stateMutator` | `ReturnType`<`F`\> extends `Promise`<`any`\> ? `never` : `F` | function that mutates `state`, cannot be asynchronous |
+| Название       | Тип                                                          | Описание                                                     |
+| :------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| `stateMutator` | `ReturnType`<`F`\> extends `Promise`<`any`\> ? `never` : `F` | функция, которая изменяет `state`, не может быть асинхронной |
 
-#### Returns
+#### Возвращает
 
 `void`
 
@@ -211,10 +195,9 @@ ___
 
 ▸ **$reset**(): `void`
 
-Resets the store to its initial state by building a new state object.
-TODO: make this options only
+Сбрасывает хранилище в исходное состояние, создавая новый объект состояния.TODO: только для option-хранилищ
 
-#### Returns
+#### Возвращает
 
 `void`
 
@@ -224,31 +207,27 @@ ___
 
 ▸ **$subscribe**(`callback`, `options?`): () => `void`
 
-Setups a callback to be called whenever the state changes. It also returns a function to remove the callback. Note
-that when calling `store.$subscribe()` inside of a component, it will be automatically cleaned up when the
-component gets unmounted unless `detached` is set to true.
+Настройка коллбека для вызова каждый раз, когда изменяется состояние. Функция также возвращает другую функцию для удаления коллбека. Обратите внимание, что при вызове `store.$subscribe()` внутри компонента, он будет автоматически очищен, когда компонент будет размонтирован, если не установлено значение `detached` в true.
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | [`SubscriptionCallback`](../modules/pinia.md#subscriptioncallback)<`S`\> | callback passed to the watcher |
-| `options?` | { `detached?`: `boolean`  } & `WatchOptions`<`boolean`\> | `watch` options + `detached` to detach the subscription from the context (usually a component) this is called from. Note that the `flush` option does not affect calls to `store.$patch()`. |
+| Название   | Тип                                                                      | Описание                                                                                                                                                                                      |
+| :--------- | :----------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `callback` | [`SubscriptionCallback`](../modules/pinia.md#subscriptioncallback)<`S`\> | коллбек, передаваемый наблюдателю                                                                                                                                                             |
+| `options?` | { `detached?`: `boolean` } & `WatchOptions`<`boolean`\>                  | Опции `watch` + `detached` для отсоединения подписки от контекста (обычно компонента), из которого она вызывается. Обратите внимание, что опция `flush` не влияет на вызовы `store.$patch()`. |
 
-#### Returns
+#### Возвращает
 
 `fn`
 
-function that removes the watcher
+функция, удаляющая наблюдателя
 
 ▸ (): `void`
 
-Setups a callback to be called whenever the state changes. It also returns a function to remove the callback. Note
-that when calling `store.$subscribe()` inside of a component, it will be automatically cleaned up when the
-component gets unmounted unless `detached` is set to true.
+Настройка коллбека для вызова каждый раз, когда изменяется состояние. Функция также возвращает другую функцию для удаления коллбека. Обратите внимание, что при вызове `store.$subscribe()` внутри компонента, он будет автоматически очищен, когда компонент будет размонтирован, если не установлено значение `detached` в true.
 
-##### Returns
+##### Возвращает
 
 `void`
 
-function that removes the watcher
+функция, удаляющая наблюдателя

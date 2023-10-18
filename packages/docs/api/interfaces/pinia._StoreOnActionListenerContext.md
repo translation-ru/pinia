@@ -10,7 +10,7 @@ editLink: false
 
 Фактический тип для [StoreOnActionListenerContext](../modules/pinia.md#storeonactionlistenercontext). Существует для целей рефакторинга. Только для внутреннего **использования**.
 
-## Типы параметров
+## Параметры типа
 
 | Название     | Тип              |
 | :----------- | :--------------- |
