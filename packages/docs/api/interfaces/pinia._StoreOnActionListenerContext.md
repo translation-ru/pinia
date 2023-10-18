@@ -8,7 +8,7 @@ editLink: false
 
 [pinia](../modules/pinia.md)._StoreOnActionListenerContext
 
-Фактический тип для [StoreOnActionListenerContext](../modules/pinia.md#storeonactionlistenercontext). Существует для целей рефакторинга. Только для внутреннего **использования**.
+Фактический тип для [StoreOnActionListenerContext](../modules/pinia.md#StoreOnActionListenerContext). Существует для целей рефакторинга. Только для внутреннего **использования**.
 
 ## Параметры типа
 
@@ -22,7 +22,7 @@ editLink: false
 
 ### after
 
-• **after**: (`callback`: `A` extends `Record`<`ActionName`, [`_Method`](../modules/pinia.md#_method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_awaited)<`ReturnType`<`A`[`ActionName`]\>\>) => `void` : () => `void`) => `void`
+• **after**: (`callback`: `A` extends `Record`<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)<`ReturnType`<`A`[`ActionName`]\>\>) => `void` : () => `void`) => `void`
 
 #### Объявление типа
 
@@ -34,7 +34,7 @@ editLink: false
 
 | Название   | Тип                                                                                                                                                                                                        |
 | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `callback` | `A` extends `Record`<`ActionName`, [`_Method`](../modules/pinia.md#_method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_awaited)<`ReturnType`<`A`[`ActionName`]\>\>) => `void` : () => `void` |
+| `callback` | `A` extends `Record`<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)<`ReturnType`<`A`[`ActionName`]\>\>) => `void` : () => `void` |
 
 ##### Возвращает
 
@@ -44,7 +44,7 @@ ___
 
 ### args
 
-• **args**: `A` extends `Record`<`ActionName`, [`_Method`](../modules/pinia.md#_method)\> ? `Parameters`<`A`[`ActionName`]\> : `unknown`[]
+• **args**: `A` extends `Record`<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? `Parameters`<`A`[`ActionName`]\> : `unknown`[]
 
 Параметры, передаваемые действию
 

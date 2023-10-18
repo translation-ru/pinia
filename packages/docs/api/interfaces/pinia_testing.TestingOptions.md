@@ -54,7 +54,7 @@ ___
 
 ### initialState
 
-• `Optional` **initialState**: [`StateTree`](../modules/pinia.md#statetree)
+• `Optional` **initialState**: [`StateTree`](../modules/pinia.md#StateTree)
 
 Позволяет определить частичное начальное состояние всех ваших хранилищ. Это состояние применяется после создания хранилища, что позволяет задать только несколько свойств, необходимых для тестирования.
 
