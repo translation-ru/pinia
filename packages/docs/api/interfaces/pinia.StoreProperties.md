@@ -4,31 +4,31 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / StoreProperties
 
-# Interface: StoreProperties<Id\>
+# Интерфейс: StoreProperties<Id\>
 
 [pinia](../modules/pinia.md).StoreProperties
 
-Properties of a store.
+Свойства хранилища.
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` |
+| Название | Тип              |
+| :------- | :--------------- |
+| `Id`     | extends `string` |
 
-## Hierarchy
+## Иерархия
 
 - **`StoreProperties`**
 
   ↳ [`_StoreWithState`](pinia._StoreWithState.md)
 
-## Properties
+## Свосйтва
 
 ### $id
 
 • **$id**: `Id`
 
-Unique identifier of the store
+Уникальный идентификатор хранилища
 
 ___
 
@@ -36,6 +36,4 @@ ___
 
 • **\_customProperties**: `Set`<`string`\>
 
-Used by devtools plugin to retrieve properties added with plugins. Removed
-in production. Can be used by the user to add property keys of the store
-that should be displayed in devtools.
+Используется плагином devtools для получения свойств, добавленных с помощью плагинов. Удаляется при production сборке. Может использоваться пользователем для добавления ключей свойств хранилища, которые должны отображаться в devtools.

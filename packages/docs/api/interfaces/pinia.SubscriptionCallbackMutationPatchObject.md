@@ -4,36 +4,33 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationPatchObject
 
-# Interface: SubscriptionCallbackMutationPatchObject<S\>
+# Интерфейс: SubscriptionCallbackMutationPatchObject<S\>
 
 [pinia](../modules/pinia.md).SubscriptionCallbackMutationPatchObject
 
-Context passed to a subscription callback when `store.$patch()` is called
-with an object.
+Контекст, передаваемый коллбеку подписки при вызове `store.$patch()` с аргументом в виде объекта.
 
-## Type parameters
+## Параметры типа
 
-| Name |
-| :------ |
-| `S` |
+| Название |
+| :------- |
+| `S`      |
 
-## Hierarchy
+## Иерархия
 
 - [`_SubscriptionCallbackMutationBase`](pinia._SubscriptionCallbackMutationBase.md)
 
   ↳ **`SubscriptionCallbackMutationPatchObject`**
 
-## Properties
+## Свойства
 
 ### events
 
 • **events**: `DebuggerEvent`[]
 
-🔴 DEV ONLY, DO NOT use for production code. Different mutation calls. Comes from
-https://vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging and allows to track mutations in
-devtools and plugins **during development only**.
+🔴 ТОЛЬКО ДЛЯ РАЗРАБОТКИ, НЕ использовать в production коде. Различные вызовы изменений. Поступают от https://vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging и позволяют отслеживать изменения в devtools и плагинах **только во время разработки**.
 
-#### Overrides
+#### Переопределяет
 
 [_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[events](pinia._SubscriptionCallbackMutationBase.md#events)
 
@@ -43,7 +40,7 @@ ___
 
 • **payload**: [`_DeepPartial`](../modules/pinia.md#_DeepPartial)<`S`\>
 
-Object passed to `store.$patch()`.
+Объект, передаваемый в `store.$patch()`.
 
 ___
 
@@ -51,9 +48,9 @@ ___
 
 • **storeId**: `string`
 
-`id` of the store doing the mutation.
+`id` хранилища, осуществляющего изменение.
 
-#### Inherited from
+#### Наследуется от
 
 [_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[storeId](pinia._SubscriptionCallbackMutationBase.md#storeId)
 
@@ -63,8 +60,8 @@ ___
 
 • **type**: [`patchObject`](../enums/pinia.MutationType.md#patchObject)
 
-Type of the mutation.
+Тип изменения
 
-#### Overrides
+#### Переопределяет
 
 [_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[type](pinia._SubscriptionCallbackMutationBase.md#type)

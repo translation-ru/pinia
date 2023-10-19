@@ -4,31 +4,27 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationDirect
 
-# Interface: SubscriptionCallbackMutationDirect
+# Интерфейс: SubscriptionCallbackMutationDirect
 
 [pinia](../modules/pinia.md).SubscriptionCallbackMutationDirect
 
-Context passed to a subscription callback when directly mutating the state of
-a store with `store.someState = newValue` or `store.$state.someState =
-newValue`.
+Контекст, который передается в коллбек подписки при прямом изменении состояния хранилища с помощью `store.someState = newValue` или `store.$state.someState = newValue`.
 
-## Hierarchy
+## Иерархия
 
 - [`_SubscriptionCallbackMutationBase`](pinia._SubscriptionCallbackMutationBase.md)
 
   ↳ **`SubscriptionCallbackMutationDirect`**
 
-## Properties
+## Свойства
 
 ### events
 
 • **events**: `DebuggerEvent`
 
-🔴 DEV ONLY, DO NOT use for production code. Different mutation calls. Comes from
-https://vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging and allows to track mutations in
-devtools and plugins **during development only**.
+🔴 ТОЛЬКО ДЛЯ РАЗРАБОТКИ, НЕ использовать в production коде. Различные вызовы изменений. Поступают от https://vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging и позволяют отслеживать изменения в devtools и плагинах **только во время разработки**.
 
-#### Overrides
+#### Переопределяет
 
 [_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[events](pinia._SubscriptionCallbackMutationBase.md#events)
 
@@ -38,9 +34,9 @@ ___
 
 • **storeId**: `string`
 
-`id` of the store doing the mutation.
+`id` хранилища, осуществляющего изменение.
 
-#### Inherited from
+#### Наследуется от
 
 [_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[storeId](pinia._SubscriptionCallbackMutationBase.md#storeId)
 
@@ -50,8 +46,8 @@ ___
 
 • **type**: [`direct`](../enums/pinia.MutationType.md#direct)
 
-Type of the mutation.
+Тип изменения
 
-#### Overrides
+#### Переопределяет
 
 [_SubscriptionCallbackMutationBase](pinia._SubscriptionCallbackMutationBase.md).[type](pinia._SubscriptionCallbackMutationBase.md#type)
