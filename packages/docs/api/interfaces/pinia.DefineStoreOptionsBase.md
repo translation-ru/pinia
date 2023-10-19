@@ -4,22 +4,20 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsBase
 
-# Interface: DefineStoreOptionsBase<S, Store\>
+# Интерфейс: DefineStoreOptionsBase<S, Store\>
 
 [pinia](../modules/pinia.md).DefineStoreOptionsBase
 
-Options passed to `defineStore()` that are common between option and setup
-stores. Extend this interface if you want to add custom options to both kinds
-of stores.
+Опции, передаваемые в `defineStore()`, которые являются общими для option-хранилищ и setup-хранилищ. Расширьте этот интерфейс, если вы хотите добавить собственные опции к обоим типам хранилищ.
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `S` | extends [`StateTree`](../modules/pinia.md#StateTree) |
-| `Store` | `Store` |
+| Название | Тип                                                  |
+| :------- | :--------------------------------------------------- |
+| `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) |
+| `Store`  | `Store`                                              |
 
-## Hierarchy
+## Иерархия
 
 - **`DefineStoreOptionsBase`**
 

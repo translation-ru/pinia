@@ -4,28 +4,28 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / PiniaPluginContext
 
-# Interface: PiniaPluginContext<Id, S, G, A\>
+# Интерфейс: PiniaPluginContext<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).PiniaPluginContext
 
-Context argument passed to Pinia plugins.
+Аргумент контекста, передаваемый плагинам Pinia.
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` = `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#StateTree) = [`StateTree`](../modules/pinia.md#StateTree) |
-| `G` | [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\> |
-| `A` | [`_ActionsTree`](../modules/pinia.md#_ActionsTree) |
+| Название | Тип                                                                                                 |
+| :------- | :-------------------------------------------------------------------------------------------------- |
+| `Id`     | extends `string` = `string`                                                                         |
+| `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) = [`StateTree`](../modules/pinia.md#StateTree) |
+| `G`      | [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>                                            |
+| `A`      | [`_ActionsTree`](../modules/pinia.md#_ActionsTree)                                                  |
 
-## Properties
+## Свойства
 
 ### app
 
 • **app**: `App`<`any`\>
 
-Current app created with `Vue.createApp()`.
+Текущее приложение, созданное при помощи `Vue.createApp()`.
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 • **options**: [`DefineStoreOptionsInPlugin`](pinia.DefineStoreOptionsInPlugin.md)<`Id`, `S`, `G`, `A`\>
 
-Initial options defining the store when calling `defineStore()`.
+Начальные опции, определяющие хранилище при вызове `defineStore()`.
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 • **pinia**: [`Pinia`](pinia.Pinia.md)
 
-pinia instance.
+экземпляр pinia.
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 • **store**: [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>
 
-Current store being extended.
+Текущее хранилище, которое будет расширено.
