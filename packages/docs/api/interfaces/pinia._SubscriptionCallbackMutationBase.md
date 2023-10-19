@@ -4,13 +4,13 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / \_SubscriptionCallbackMutationBase
 
-# Interface: \_SubscriptionCallbackMutationBase
+# Интерфейс: \_SubscriptionCallbackMutationBase
 
 [pinia](../modules/pinia.md)._SubscriptionCallbackMutationBase
 
-Base type for the context passed to a subscription callback. Internal type.
+Базовый тип для контекста, передаваемого в коллбек подписки. Внутренний тип.
 
-## Hierarchy
+## Иерархия
 
 - **`_SubscriptionCallbackMutationBase`**
 
@@ -20,15 +20,13 @@ Base type for the context passed to a subscription callback. Internal type.
 
   ↳ [`SubscriptionCallbackMutationPatchObject`](pinia.SubscriptionCallbackMutationPatchObject.md)
 
-## Properties
+## Свойства
 
 ### events
 
-• `Optional` **events**: `DebuggerEvent` \| `DebuggerEvent`[]
+• `Опционально` **events**: `DebuggerEvent` \| `DebuggerEvent`[]
 
-🔴 DEV ONLY, DO NOT use for production code. Different mutation calls. Comes from
-https://vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging and allows to track mutations in
-devtools and plugins **during development only**.
+🔴 ТОЛЬКО ДЛЯ РАЗРАБОТКИ, НЕ использовать в production коде. Различные вызовы изменений. Поступают от https://vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging и позволяют отслеживать изменения в devtools и плагинах **только во время разработки**.
 
 ___
 
@@ -36,7 +34,7 @@ ___
 
 • **storeId**: `string`
 
-`id` of the store doing the mutation.
+`id` хранилища, осуществляющего мутацию.
 
 ___
 
@@ -44,4 +42,4 @@ ___
 
 • **type**: [`MutationType`](../enums/pinia.MutationType.md)
 
-Type of the mutation.
+Тип изменения.

@@ -4,38 +4,35 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineSetupStoreOptions
 
-# Interface: DefineSetupStoreOptions<Id, S, G, A\>
+# Интерфейс: DefineSetupStoreOptions<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).DefineSetupStoreOptions
 
-Options parameter of `defineStore()` for setup stores. Can be extended to
-augment stores with the plugin API.
+Параметр `options` функции `defineStore()` для создания setup-хранилищ. Может быть расширен для дополнения хранилищ с использованием API плагинов.
 
-**`See`**
+**`Смотрите`**
 
 [DefineStoreOptionsBase](pinia.DefineStoreOptionsBase.md).
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#StateTree) |
-| `G` | `G` |
-| `A` | `A` |
+| Название | Тип                                                  |
+| :------- | :--------------------------------------------------- |
+| `Id`     | extends `string`                                     |
+| `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) |
+| `G`      | `G`                                                  |
+| `A`      | `A`                                                  |
 
-## Hierarchy
+## Иерархия
 
 - [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)<`S`, [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>\>
 
   ↳ **`DefineSetupStoreOptions`**
 
-## Properties
+## Свойства
 
 ### actions
 
-• `Optional` **actions**: `A`
+• `Опционально` **actions**: `A`
 
-Extracted actions. Added by useStore(). SHOULD NOT be added by the user when
-creating the store. Can be used in plugins to get the list of actions in a
-store defined with a setup function. Note this is always defined
+Извлеченные действия. Добавляются с помощью useStore(). НЕ ДОЛЖНЫ добавляться пользователем при создании хранилища. Могут использоваться в плагинах для получения списка действий в хранилище, определенном с помощью setup-функции. Обратите внимание, что это свойство всегда определено

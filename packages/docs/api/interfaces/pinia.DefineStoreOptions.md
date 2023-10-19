@@ -4,25 +4,24 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptions
 
-# Interface: DefineStoreOptions<Id, S, G, A\>
+# Интерфейс: DefineStoreOptions<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).DefineStoreOptions
 
-Options parameter of `defineStore()` for option stores. Can be extended to
-augment stores with the plugin API.
+Параметр `options` функции `defineStore()` для создания option-хранилищ. Может быть расширен для дополнения хранилищ с использованием API плагинов.
 
-**`See`**
+**`Смотрите`**
 
 [DefineStoreOptionsBase](pinia.DefineStoreOptionsBase.md).
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#StateTree) |
-| `G` | `G` |
-| `A` | `A` |
+| Название | Тип                                                  |
+| :------- | :--------------------------------------------------- |
+| `Id`     | extends `string`                                     |
+| `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) |
+| `G`      | `G`                                                  |
+| `A`      | `A`                                                  |
 
 ## Hierarchy
 
@@ -30,13 +29,13 @@ augment stores with the plugin API.
 
   ↳ **`DefineStoreOptions`**
 
-## Properties
+## Свойства
 
 ### actions
 
 • `Optional` **actions**: `A` & `ThisType`<`A` & `UnwrapRef`<`S`\> & [`_StoreWithState`](pinia._StoreWithState.md)<`Id`, `S`, `G`, `A`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\>
 
-Optional object of actions.
+Опциональный объект действий.
 
 ___
 
@@ -44,7 +43,7 @@ ___
 
 • `Optional` **getters**: `G` & `ThisType`<`UnwrapRef`<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>
 
-Optional object of getters.
+Опциональный объект геттеров.
 
 ___
 
@@ -52,50 +51,47 @@ ___
 
 • **id**: `Id`
 
-Unique string key to identify the store across the application.
+Уникальный строковый ключ для идентификации хранилища в приложении.
 
 ___
 
 ### state
 
-• `Optional` **state**: () => `S`
+• `Опционально` **state**: () => `S`
 
-#### Type declaration
+#### Объявление типа
 
 ▸ (): `S`
 
-Function to create a fresh state. **Must be an arrow function** to ensure
-correct typings!
+Функция для создания нового состояния. **Должна быть стрелочной функцией** для обеспечения
+корректной типизации!
 
-##### Returns
+##### Возвращает
 
 `S`
 
-## Methods
+## Методы
 
 ### hydrate
 
-▸ `Optional` **hydrate**(`storeState`, `initialState`): `void`
+▸ `Опционально` **hydrate**(`storeState`, `initialState`): `void`
 
-Allows hydrating the store during SSR when complex state (like client side only refs) are used in the store
-definition and copying the value from `pinia.state` isn't enough.
+Позволяет гидратировать хранилище во время SSR, когда в определении хранилища используются сложное состояние (например, только ref-ссылки на стороне клиента) и копирования значения из `pinia.state` будет недостаточно.
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `storeState` | `UnwrapRef`<`S`\> | the current state in the store |
-| `initialState` | `UnwrapRef`<`S`\> | initialState |
+| Название       | Тип               | Описание                    |
+| :------------- | :---------------- | :-------------------------- |
+| `storeState`   | `UnwrapRef`<`S`\> | текущее состояние хранилища |
+| `initialState` | `UnwrapRef`<`S`\> | initialState                |
 
-#### Returns
+#### Возвращает
 
 `void`
 
-**`Example`**
+**`Пример`**
 
-If in your `state`, you use any `customRef`s, any `computed`s, or any `ref`s that have a different value on
-Server and Client, you need to manually hydrate them. e.g., a custom ref that is stored in the local
-storage:
+Если в вашем `state` вы используете любые `customRef`, `computed` или `ref`, значения которых различаются на сервере и клиенте, вам нужно будет вручную их гидратировать (восстановить). Например, ref-ссылка, которая хранится в локальном хранилище:
 
 ```ts
 const useStore = defineStore('main', {
