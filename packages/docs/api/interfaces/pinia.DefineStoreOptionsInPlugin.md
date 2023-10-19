@@ -4,46 +4,44 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsInPlugin
 
-# Interface: DefineStoreOptionsInPlugin<Id, S, G, A\>
+# Интерфейс: DefineStoreOptionsInPlugin<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).DefineStoreOptionsInPlugin
 
-Available `options` when creating a pinia plugin.
+Доступные `options` при создании плагина pinia.
 
-## Type parameters
+## Параметры типа
 
-| Name | Type |
-| :------ | :------ |
-| `Id` | extends `string` |
-| `S` | extends [`StateTree`](../modules/pinia.md#StateTree) |
-| `G` | `G` |
-| `A` | `A` |
+| Название | Тип                                                  |
+| :------- | :--------------------------------------------------- |
+| `Id`     | extends `string`                                     |
+| `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) |
+| `G`      | `G`                                                  |
+| `A`      | `A`                                                  |
 
-## Hierarchy
+## Иерархия
 
 - `Omit`<[`DefineStoreOptions`](pinia.DefineStoreOptions.md)<`Id`, `S`, `G`, `A`\>, ``"id"`` \| ``"actions"``\>
 
   ↳ **`DefineStoreOptionsInPlugin`**
 
-## Properties
+## Свойства
 
 ### actions
 
 • **actions**: `A`
 
-Extracted object of actions. Added by useStore() when the store is built
-using the setup API, otherwise uses the one passed to `defineStore()`.
-Defaults to an empty object if no actions are defined.
+Извлеченный объект действий. Добавляется с помощью `useStore()` при создании хранилища с setup API, в противном случае используется тот, который передается в `defineStore()`. По умолчанию является пустым объектом, если действия не определены.
 
 ___
 
 ### getters
 
-• `Optional` **getters**: `G` & `ThisType`<`UnwrapRef`<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>
+• `Опционально` **getters**: `G` & `ThisType`<`UnwrapRef`<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>
 
-Optional object of getters.
+Опциональный объект геттеров.
 
-#### Inherited from
+#### Наследуется от
 
 Omit.getters
 
@@ -51,48 +49,44 @@ ___
 
 ### state
 
-• `Optional` **state**: () => `S`
+• `Опционально` **state**: () => `S`
 
-#### Type declaration
+#### Объявление типа
 
 ▸ (): `S`
 
-Function to create a fresh state. **Must be an arrow function** to ensure
-correct typings!
+Функция для создания нового состояния. **Должна быть стрелочной функцией** для обеспечения корректной типизации!
 
-##### Returns
+##### Возвращает
 
 `S`
 
-#### Inherited from
+#### Наследуется от
 
 Omit.state
 
-## Methods
+## Методы
 
 ### hydrate
 
-▸ `Optional` **hydrate**(`storeState`, `initialState`): `void`
+▸ `Опционально` **hydrate**(`storeState`, `initialState`): `void`
 
-Allows hydrating the store during SSR when complex state (like client side only refs) are used in the store
-definition and copying the value from `pinia.state` isn't enough.
+Позволяет гидратировать хранилище во время SSR, когда в определении хранилища используются сложное состояние (например, только ref-ссылки на стороне клиента) и копирования значения из `pinia.state` будет недостаточно.
 
-#### Parameters
+#### Параметры
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `storeState` | `UnwrapRef`<`S`\> | the current state in the store |
-| `initialState` | `UnwrapRef`<`S`\> | initialState |
+| Название       | Тип               | Описание                    |
+| :------------- | :---------------- | :-------------------------- |
+| `storeState`   | `UnwrapRef`<`S`\> | текущее состояние хранилища |
+| `initialState` | `UnwrapRef`<`S`\> | initialState                |
 
-#### Returns
+#### Возвращает
 
 `void`
 
-**`Example`**
+**`Пример`**
 
-If in your `state`, you use any `customRef`s, any `computed`s, or any `ref`s that have a different value on
-Server and Client, you need to manually hydrate them. e.g., a custom ref that is stored in the local
-storage:
+Если в вашем `state` вы используете любые `customRef`, `computed` или `ref`, значения которых различаются на сервере и клиенте, вам нужно будет вручную их гидратировать (восстановить). Например, ref-ссылка, которая хранится в локальном хранилище:
 
 ```ts
 const useStore = defineStore('main', {
@@ -106,6 +100,6 @@ const useStore = defineStore('main', {
 })
 ```
 
-#### Inherited from
+#### Наследуется от
 
 Omit.hydrate
