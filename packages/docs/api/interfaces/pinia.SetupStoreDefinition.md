@@ -32,7 +32,7 @@ editLink: false
 
 ## Callable
 
-### SetupStoreDefinitionasdasd
+### SetupStoreDefinition
 
 ▸ **SetupStoreDefinition**(`pinia?`, `hot?`): [`Store`](../modules/pinia.md#store)<`Id`, [`_ExtractStateFromSetupStore`](../modules/pinia.md#_extractstatefromsetupstore)<`SS`\>, [`_ExtractGettersFromSetupStore`](../modules/pinia.md#_extractgettersfromsetupstore)<`SS`\>, [`_ExtractActionsFromSetupStore`](../modules/pinia.md#_extractactionsfromsetupstore)<`SS`\>\>
 
