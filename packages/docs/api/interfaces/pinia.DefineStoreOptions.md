@@ -23,7 +23,7 @@ editLink: false
 | `G`      | `G`                                                  |
 | `A`      | `A`                                                  |
 
-## Hierarchy
+## Иерархия
 
 - [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)<`S`, [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>\>
 
