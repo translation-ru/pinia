@@ -30,7 +30,7 @@ editLink: false
 
   ↳ **`SetupStoreDefinition`**
 
-## Callable
+## Вызов
 
 ### SetupStoreDefinition
 

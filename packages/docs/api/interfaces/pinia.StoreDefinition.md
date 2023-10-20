@@ -25,7 +25,7 @@ editLink: false
 
   ↳ [`SetupStoreDefinition`](pinia.SetupStoreDefinition.md)
 
-## Callable
+## Вызов
 
 ### StoreDefinition
 
