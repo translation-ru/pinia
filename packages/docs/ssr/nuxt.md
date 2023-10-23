@@ -68,7 +68,7 @@ const { data } = await useAsyncData('user', () => store.fetchUser())
 - `storeToRefs()`когда необходимо извлечь отдельные ref-ссылки из хранилища
 - `acceptHMRUpdate()` для [горячей замены модулей](../cookbook/hot-module-replacement.md)
 
-Также автоматически импортируются **все хранилища**, определенные в вашей папке `stores`. Однако вложенные хранилища не ищутся. Вы можете настроить это поведение, установив параметр `storeDirs`:
+Также автоматически импортируются **все хранилища**, определенные в вашей папке `stores`. Однако вложенные хранилища не ищутся. Вы можете настроить это поведение, установив параметр `storesDirs`:
 
 ```ts
 // nuxt.config.ts
@@ -76,7 +76,7 @@ export default defineNuxtConfig({
   // ... другие параметры
   modules: ['@pinia/nuxt'],
   pinia: {
-    storeDirs: ['./stores/**', './custom-folder/stores/**'],
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
   },
 })
 ```
