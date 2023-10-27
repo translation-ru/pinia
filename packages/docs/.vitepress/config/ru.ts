@@ -16,6 +16,9 @@ export const ruConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   ],
 
   themeConfig: {
+    darkModeSwitchLabel: 'Тема',
+    sidebarMenuLabel: 'Меню',
+
     editLink: {
       pattern:
         'https://github.com/translation-ru/pinia/edit/v2/packages/docs/:path',
