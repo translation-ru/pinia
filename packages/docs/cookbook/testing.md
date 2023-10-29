@@ -157,15 +157,28 @@ expect(store.someAction).toHaveBeenCalledTimes(1)
 
 ### Указание функции createSpy %{#specifying-the-createspy-function}%
 
-При использовании Jest или vitest с `globals: true`, `createTestingPinia` автоматически создает заглушки (stubs) действий с помощью функции шпионов (spy) на основе существующего тестового фреймворка (`jest.fn` или `vitest.fn`). Если вы используете другой фреймворк, то вам необходимо указать опцию [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy):
+При использовании Jest или vitest с `globals: true`, `createTestingPinia` автоматически создает заглушки (stubs) действий с помощью функции шпионов (spy) на основе существующего тестового фреймворка (`jest.fn` или `vitest.fn`). Если вы не используете `globals: true` или используете другой фреймворк, то вам необходимо указать опцию [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy):
 
-```js
+::: code-group
+
+```ts [vitest]
+// ПРИМЕЧАНИЕ: не требуется при использовании `globals: true`
+import { vi } from 'vitest'
+
+createTestingPinia({
+  createSpy: vi.fn,
+})
+```
+
+```ts [sinon]
 import sinon from 'sinon'
 
 createTestingPinia({
-  createSpy: sinon.spy, // использование шпиона из sinon для обертывания действий
+  createSpy: sinon.spy,
 })
 ```
+
+:::
 
 Другие примеры можно найти в [тестах пакета тестирования](https://github.com/vuejs/pinia/blob/v2/packages/testing/src/testing.spec.ts).
 
