@@ -68,7 +68,7 @@ export const useCounterStore = defineStore('counter', () => {
 - `computed()` становятся `геттерами`
 - `function()` становятся `действиями`
 
-Обратите внимание, что вы **должны** вернуть **все свойства состояния** в setup-хранилищах, чтобы Pinia могла распознать их как состояние. Другими словами, в хранилищах нельзя иметь _приватные_ свойства состояния.
+Обратите внимание, что вы **должны** вернуть **все свойства состояния** в setup-хранилищах, чтобы Pinia могла распознать их как состояние. Другими словами, в хранилищах нельзя иметь _приватные_ свойства состояния. Возвращение не всех свойств состояния может привести к поломке SSR, devtools и других плагинов.
 
 Setup-хранилища предоставляют гораздо большую гибкость по сравнению с [options-хранилищами](#option-stores), так как вы можете создавать наблюдателей (watchers) внутри хранилища и свободно использовать любые [композиции (composables)](https://vuejs.org/guide/reusability/composables.html#composables). Однако имейте в виду, что использование композиций может стать более сложным при использовании [рендеринга на стороне сервера (SSR)](../cookbook/composables.md).
 
@@ -124,6 +124,7 @@ const store = useCounterStore()
 
 ```vue
 <script setup>
+import { useCounterStore } from '@/stores/counter'
 const store = useCounterStore()
 // ❌ Это не будет работать, так как нарушает реактивность
 // это то же самое, что и деструктуризация из `props`.
@@ -147,6 +148,7 @@ const doubleValue = computed(() => store.doubleCount)
 
 ```vue
 <script setup>
+import { useCounterStore } from '@/stores/counter'
 import { storeToRefs } from 'pinia'
 
 const store = useCounterStore()
