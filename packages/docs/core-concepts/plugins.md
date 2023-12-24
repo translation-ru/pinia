@@ -84,7 +84,7 @@ pinia.use(({ store }) => {
 })
 ```
 
-Обратите внимание, что каждое хранилище оборачивается в [`reactive`](https://v3.vuejs.org/api/basic-reactivity.html#reactive), автоматически раскрывая любой Ref (`ref()`, ` computed()`, ...), который оно содержит:
+Обратите внимание, что каждое хранилище оборачивается в [`reactive`](https://vuejs.org/api/reactivity-core#reactive), автоматически раскрывая любой Ref (`ref()`, ` computed()`, ...), который оно содержит:
 
 ```js
 const sharedRef = ref('shared')
