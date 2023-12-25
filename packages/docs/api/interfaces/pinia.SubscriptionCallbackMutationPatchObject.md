@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / SubscriptionCallbackMutationPatchObject
 
-# Интерфейс: SubscriptionCallbackMutationPatchObject<S\>
+# Интерфейс: SubscriptionCallbackMutationPatchObject\<S\>
 
 [pinia](../modules/pinia.md).SubscriptionCallbackMutationPatchObject
 
@@ -38,7 +38,7 @@ ___
 
 ### payload
 
-• **payload**: [`_DeepPartial`](../modules/pinia.md#_DeepPartial)<`S`\>
+• **payload**: [`_DeepPartial`](../modules/pinia.md#_DeepPartial)\<`S`\>
 
 Объект, передаваемый в `store.$patch()`.
 

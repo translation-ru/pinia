@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / PiniaPluginContext
 
-# Интерфейс: PiniaPluginContext<Id, S, G, A\>
+# Интерфейс: PiniaPluginContext\<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).PiniaPluginContext
 
@@ -16,14 +16,14 @@ editLink: false
 | :------- | :-------------------------------------------------------------------------------------------------- |
 | `Id`     | extends `string` = `string`                                                                         |
 | `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) = [`StateTree`](../modules/pinia.md#StateTree) |
-| `G`      | [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>                                            |
+| `G`      | [`_GettersTree`](../modules/pinia.md#_GettersTree)\<`S`\>                                           |
 | `A`      | [`_ActionsTree`](../modules/pinia.md#_ActionsTree)                                                  |
 
 ## Свойства
 
 ### app
 
-• **app**: `App`<`any`\>
+• **app**: `App`\<`any`\>
 
 Текущее приложение, созданное при помощи `Vue.createApp()`.
 
@@ -31,7 +31,7 @@ ___
 
 ### options
 
-• **options**: [`DefineStoreOptionsInPlugin`](pinia.DefineStoreOptionsInPlugin.md)<`Id`, `S`, `G`, `A`\>
+• **options**: [`DefineStoreOptionsInPlugin`](pinia.DefineStoreOptionsInPlugin.md)\<`Id`, `S`, `G`, `A`\>
 
 Начальные опции, определяющие хранилище при вызове `defineStore()`.
 
@@ -47,6 +47,6 @@ ___
 
 ### store
 
-• **store**: [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>
+• **store**: [`Store`](../modules/pinia.md#Store)\<`Id`, `S`, `G`, `A`\>
 
 Текущее хранилище, которое будет расширено.

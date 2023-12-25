@@ -20,7 +20,7 @@ editLink: false
 
 ### app
 
-• **app**: `App`<`any`\>
+• **app**: `App`\<`any`\>
 
 Приложение, используемое Pinia
 
@@ -28,7 +28,7 @@ ___
 
 ### install
 
-• **install**: (`app`: `App`<`any`\>) => `void`
+• **install**: (`app`: `App`\<`any`\>) => `void`
 
 #### Объявление типа
 
@@ -38,7 +38,7 @@ ___
 
 | Название | Тип           |
 | :------- | :------------ |
-| `app`    | `App`<`any`\> |
+| `app`    | `App`\<`any`\> |
 
 ##### Возвращает
 
@@ -52,7 +52,7 @@ ___
 
 ### state
 
-• **state**: `Ref`<`Record`<`string`, [`StateTree`](../modules/pinia.md#StateTree)\>\>
+• **state**: `Ref`\<`Record`\<`string`, [`StateTree`](../modules/pinia.md#StateTree)\>\>
 
 корневое состояние
 

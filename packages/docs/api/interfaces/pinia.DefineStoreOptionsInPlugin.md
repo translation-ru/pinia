@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptionsInPlugin
 
-# Интерфейс: DefineStoreOptionsInPlugin<Id, S, G, A\>
+# Интерфейс: DefineStoreOptionsInPlugin\<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).DefineStoreOptionsInPlugin
 
@@ -21,7 +21,7 @@ editLink: false
 
 ## Иерархия
 
-- `Omit`<[`DefineStoreOptions`](pinia.DefineStoreOptions.md)<`Id`, `S`, `G`, `A`\>, ``"id"`` \| ``"actions"``\>
+- `Omit`\<[`DefineStoreOptions`](pinia.DefineStoreOptions.md)\<`Id`, `S`, `G`, `A`\>, ``"id"`` \| ``"actions"``\>
 
   ↳ **`DefineStoreOptionsInPlugin`**
 
@@ -37,7 +37,7 @@ ___
 
 ### getters
 
-• `Опционально` **getters**: `G` & `ThisType`<`UnwrapRef`<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>
+• `Опционально` **getters**: `G` & `ThisType`\<`UnwrapRef`<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)\<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)\<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)\<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)\<`S`\>
 
 Опциональный объект геттеров.
 
@@ -69,7 +69,7 @@ Omit.state
 
 ### hydrate
 
-▸ `Опционально` **hydrate**(`storeState`, `initialState`): `void`
+▸ **hydrate**(`storeState`, `initialState`): `void`
 
 Позволяет гидратировать хранилище во время SSR, когда в определении хранилища используются сложное состояние (например, только ref-ссылки на стороне клиента) и копирования значения из `pinia.state` будет недостаточно.
 
@@ -77,8 +77,8 @@ Omit.state
 
 | Название       | Тип               | Описание                    |
 | :------------- | :---------------- | :-------------------------- |
-| `storeState`   | `UnwrapRef`<`S`\> | текущее состояние хранилища |
-| `initialState` | `UnwrapRef`<`S`\> | initialState                |
+| `storeState`   | `UnwrapRef`\<`S`\> | текущее состояние хранилища |
+| `initialState` | `UnwrapRef`\<`S`\> | initialState                |
 
 #### Возвращает
 
