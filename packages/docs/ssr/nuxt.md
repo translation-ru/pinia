@@ -36,7 +36,28 @@ export default defineNuxtConfig({
 
 И вот, используйте свое хранилище как обычно!
 
-## Использование хранилища за пределами `setup()` %{#using-the-store-outside-of-setup}%
+## Ожидание выполнения действий на страницах %{#awaiting-for-actions-in-pages}%
+
+Как и с `onServerPrefetch()`, вы можете вызывать действие хранилища внутри `asyncData()`. Учитывая, как работает `useASyncData()`, убедитесь, что возвращаете значение. Это позволит Nuxt пропустить выполнение действия на стороне клиента и повторно использовать значение с сервера.
+
+```vue{3-4}
+<script setup>
+const store = useStore()
+// мы также могли бы извлечь данные, но они уже присутствуют в хранилище
+await useAsyncData('user', () => store.fetchUser())
+</script>
+```
+
+Если ваше действие не возвращает значение, вы можете добавить любое значение, не являющееся `null` или `undefined`:
+
+```vue{3}
+<script setup>
+const store = useStore()
+await useAsyncData('user', () => store.fetchUser().then(() => true))
+</script>
+```
+
+:::tip Совет
 
 Если вы хотите использовать хранилище за пределами `setup()`, не забудьте передать объект `pinia` в `useStore()`. Мы добавили его в [контекст](https://nuxtjs.org/docs/2.x/internals-glossary/context), поэтому у вас есть к нему доступ в `asyncData()` и `fetch()`:
 
@@ -50,14 +71,7 @@ export default {
 }
 ```
 
-Как и в случае с `onServerPrefetch()`, не нужно делать ничего особенного, если вы хотите вызвать действие хранилища внутри `asyncData()`:
-
-```vue
-<script setup>
-const store = useStore()
-const { data } = await useAsyncData('user', () => store.fetchUser())
-</script>
-```
+:::
 
 ## Автоматические импорты %{#auto-imports}%
 

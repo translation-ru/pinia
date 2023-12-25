@@ -20,7 +20,7 @@ editLink: false
 
 ### install
 
-• **install**: (`app`: `App`<`any`\>) => `void`
+• **install**: (`app`: `App`\<`any`\>) => `void`
 
 #### Объявление типа
 
@@ -30,7 +30,7 @@ editLink: false
 
 | Название | Тип           |
 | :------- | :------------ |
-| `app`    | `App`<`any`\> |
+| `app`    | `App`\<`any`\> |
 
 ##### Возвращает
 
@@ -40,7 +40,7 @@ ___
 
 ### state
 
-• **state**: `Ref`<`Record`<`string`, [`StateTree`](../modules/pinia.md#StateTree)\>\>
+• **state**: `Ref`\<`Record`\<`string`, [`StateTree`](../modules/pinia.md#StateTree)\>\>
 
 корневое состояние
 

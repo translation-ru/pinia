@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineSetupStoreOptions
 
-# Интерфейс: DefineSetupStoreOptions<Id, S, G, A\>
+# Интерфейс: DefineSetupStoreOptions\<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).DefineSetupStoreOptions
 
@@ -25,7 +25,7 @@ editLink: false
 
 ## Иерархия
 
-- [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)<`S`, [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>\>
+- [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)\<`S`, [`Store`](../modules/pinia.md#Store)\<`Id`, `S`, `G`, `A`\>\>
 
   ↳ **`DefineSetupStoreOptions`**
 

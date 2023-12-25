@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / StoreDefinition
 
-# Интерфейс: StoreDefinition<Id, S, G, A\>
+# Интерфейс: StoreDefinition\<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).StoreDefinition
 
@@ -16,7 +16,7 @@ editLink: false
 | :------- | :-------------------------------------------------------------------------------------------------- |
 | `Id`     | extends `string` = `string`                                                                         |
 | `S`      | extends [`StateTree`](../modules/pinia.md#StateTree) = [`StateTree`](../modules/pinia.md#StateTree) |
-| `G`      | [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>                                            |
+| `G`      | [`_GettersTree`](../modules/pinia.md#_GettersTree)\<`S`\>                                           |
 | `A`      | [`_ActionsTree`](../modules/pinia.md#_ActionsTree)                                                  |
 
 ## Иерархия
@@ -29,7 +29,7 @@ editLink: false
 
 ### StoreDefinition
 
-▸ **StoreDefinition**(`pinia?`, `hot?`): [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>
+▸ **StoreDefinition**(`pinia?`, `hot?`): [`Store`](../modules/pinia.md#Store)\<`Id`, `S`, `G`, `A`\>
 
 Возвращает хранилище, при необходимости создает его.
 
@@ -42,7 +42,7 @@ editLink: false
 
 #### Возвращает
 
-[`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>
+[`Store`](../modules/pinia.md#Store)\<`Id`, `S`, `G`, `A`\>
 
 ## Свойства
 

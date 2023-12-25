@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / PiniaCustomStateProperties
 
-# Интерфейс: PiniaCustomStateProperties<S\>
+# Интерфейс: PiniaCustomStateProperties\<S\>
 
 [pinia](../modules/pinia.md).PiniaCustomStateProperties
 

@@ -4,7 +4,7 @@ editLink: false
 
 [Документация API](../index.md) / [pinia](../modules/pinia.md) / DefineStoreOptions
 
-# Интерфейс: DefineStoreOptions<Id, S, G, A\>
+# Интерфейс: DefineStoreOptions\<Id, S, G, A\>
 
 [pinia](../modules/pinia.md).DefineStoreOptions
 
@@ -25,7 +25,7 @@ editLink: false
 
 ## Иерархия
 
-- [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)<`S`, [`Store`](../modules/pinia.md#Store)<`Id`, `S`, `G`, `A`\>\>
+- [`DefineStoreOptionsBase`](pinia.DefineStoreOptionsBase.md)\<`S`, [`Store`](../modules/pinia.md#Store)\<`Id`, `S`, `G`, `A`\>\>
 
   ↳ **`DefineStoreOptions`**
 
@@ -33,7 +33,7 @@ editLink: false
 
 ### actions
 
-• `Optional` **actions**: `A` & `ThisType`<`A` & `UnwrapRef`<`S`\> & [`_StoreWithState`](pinia._StoreWithState.md)<`Id`, `S`, `G`, `A`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\>
+• `Optional` **actions**: `A` & `ThisType`\<`A` & `UnwrapRef`\<`S`\> & [`_StoreWithState`](pinia._StoreWithState.md)\<`Id`, `S`, `G`, `A`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)\<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)\<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)\<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\>
 
 Опциональный объект действий.
 
@@ -41,7 +41,7 @@ ___
 
 ### getters
 
-• `Optional` **getters**: `G` & `ThisType`<`UnwrapRef`<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)<`S`\>
+• `Optional` **getters**: `G` & `ThisType`\<`UnwrapRef`\<`S`\> & [`_StoreWithGetters`](../modules/pinia.md#_StoreWithGetters)\<`G`\> & [`PiniaCustomProperties`](pinia.PiniaCustomProperties.md)\<`string`, [`StateTree`](../modules/pinia.md#StateTree), [`_GettersTree`](../modules/pinia.md#_GettersTree)\<[`StateTree`](../modules/pinia.md#StateTree)\>, [`_ActionsTree`](../modules/pinia.md#_ActionsTree)\>\> & [`_GettersTree`](../modules/pinia.md#_GettersTree)\<`S`\>
 
 Опциональный объект геттеров.
 
@@ -74,7 +74,7 @@ ___
 
 ### hydrate
 
-▸ `Опционально` **hydrate**(`storeState`, `initialState`): `void`
+▸ **hydrate**(`storeState`, `initialState`): `void`
 
 Позволяет гидратировать хранилище во время SSR, когда в определении хранилища используются сложное состояние (например, только ref-ссылки на стороне клиента) и копирования значения из `pinia.state` будет недостаточно.
 
@@ -82,8 +82,8 @@ ___
 
 | Название       | Тип               | Описание                    |
 | :------------- | :---------------- | :-------------------------- |
-| `storeState`   | `UnwrapRef`<`S`\> | текущее состояние хранилища |
-| `initialState` | `UnwrapRef`<`S`\> | initialState                |
+| `storeState`   | `UnwrapRef`\<`S`\> | текущее состояние хранилища |
+| `initialState` | `UnwrapRef`\<`S`\> | initialState                |
 
 #### Возвращает
 
