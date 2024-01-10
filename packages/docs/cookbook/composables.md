@@ -34,7 +34,7 @@ import { defineStore, skipHydrate } from 'pinia'
 import { useMediaControls } from '@vueuse/core'
 
 export const useVideoPlayer = defineStore('video', () => {
-  // мы не будем раскрывать этот элемент напрямую
+  // мы не будем раскрывать (возвращать) этот элемент напрямую
   const videoElement = ref<HTMLVideoElement>()
   const src = ref('/data/video.mp4')
   const { playing, volume, currentTime, togglePictureInPicture } =
@@ -56,6 +56,10 @@ export const useVideoPlayer = defineStore('video', () => {
   }
 })
 ```
+
+:::warning Предупреждение
+В отличие от обычного состояния, `ref<HTMLVideoElement>()` содержит несериализуемую ссылку на DOM элемент. Именно поэтому мы не возвращаем ее напрямую. Поскольку это состояние может быть только на стороне клиента, мы знаем, что оно не будет установлено на сервере и **всегда** будет иметь на клиенте начальное состояние `undefined` .
+:::
 
 ## SSR %{#ssr}%
 
