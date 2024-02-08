@@ -24,6 +24,8 @@ editLink: false
 
 • **after**: (`callback`: `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)\<`ReturnType`\<`A`[`ActionName`]\>\>) => `void` : () => `void`) => `void`
 
+Устанавливает хук по завершению действия. Он получает возвращаемое действием значение, если это Promise, то оно будет развернуто.
+
 #### Объявление типа
 
 ▸ (`callback`): `void`
@@ -61,6 +63,9 @@ ___
 ### onError
 
 • **onError**: (`callback`: (`error`: `unknown`) => `void`) => `void`
+
+Устанавливает хук при неудачном выполнении действия. Возвращайте `false`, чтобы перехватить ошибку и
+остановить ее распространение.
 
 #### Объявление типа
 

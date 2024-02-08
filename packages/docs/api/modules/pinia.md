@@ -113,6 +113,8 @@ ___
 
 Ƭ **StoreOnActionListener**\<`Id`, `S`, `G`, `A`\>: (`context`: [`StoreOnActionListenerContext`](pinia.md#StoreOnActionListenerContext)\<`Id`, `S`, `G`, {} extends `A` ? [`_ActionsTree`](pinia.md#_ActionsTree) : `A`\>) => `void`
 
+Аргумент `store.$onAction()`
+
 #### Параметры типа
 
 | Название | Тип                                       |
@@ -125,8 +127,6 @@ ___
 #### Объявление типа
 
 ▸ (`context`): `void`
-
-Аргумент `store.$onAction()`
 
 ##### Параметры
 
@@ -177,6 +177,8 @@ ___
 
 Ƭ **SubscriptionCallback**\<`S`\>: (`mutation`: [`SubscriptionCallbackMutation`](pinia.md#SubscriptionCallbackMutation)\<`S`\>, `state`: `UnwrapRef`\<`S`\>) => `void`
 
+Коллбек подписки
+
 #### Параметры типа
 
 | Название |
@@ -186,8 +188,6 @@ ___
 #### Объявление типа
 
 ▸ (`mutation`, `state`): `void`
-
-Коллбек подписки
 
 ##### Параметры
 
@@ -450,14 +450,14 @@ ___
 
 Ƭ **\_Method**: (...`args`: `any`[]) => `any`
 
-#### Объявление типа
-
-▸ (`...args`): `any`
-
 Общий тип для функции, которая может получать аргументы и возвращать тип
 **Только** для внутреннего использования
 
 ##### Параметры
+
+#### Описание типа
+
+▸ (`...args`): `any`
 
 | Название  | Тип     |
 | :-------- | :------ |
