@@ -155,6 +155,51 @@ store.someAction()
 expect(store.someAction).toHaveBeenCalledTimes(1)
 ```
 
+### Имитация (mocking) возвращаемого значения действия %{#mocking-the-returned-value-of-action}%
+
+Действия автоматически отслеживаются, но с точки зрения типов они остаются обычными действиями. Чтобы получить правильный тип, мы должны реализовать пользовательскую обертку типа, которая применяет тип `Mock` к каждому действию. **Этот тип зависит от используемого фреймворка тестирования**. Вот пример с Vitest:
+
+```ts
+import type { Mock } from 'vitest'
+import type { Store, StoreDefinition } from 'pinia'
+
+function mockedStore<TStoreDef extends () => unknown>(
+  useStore: TStoreDef
+): TStoreDef extends StoreDefinition<
+  infer Id,
+  infer State,
+  infer Getters,
+  infer Actions
+>
+  ? Store<
+      Id,
+      State,
+      Getters,
+      {
+        [K in keyof Actions]: Actions[K] extends (
+          ...args: infer Args
+        ) => infer ReturnT
+          ? // 👇 зависит от вашего фреймворка для тестирования
+            Mock<Args, ReturnT>
+          : Actions[K]
+      }
+    >
+  : ReturnType<TStoreDef> {
+  return useStore() as any
+}
+```
+
+Это можно использовать в тестах, чтобы получить правильно типизированное хранилище:
+
+```ts
+import { mockedStore } from './mockedStore'
+import { useSomeStore } from '@/stores/myStore'
+
+const store = mockedStore(useSomeStore)
+// типизировано!
+store.someAction.mockResolvedValue('some value')
+```
+
 ### Указание функции createSpy %{#specifying-the-createspy-function}%
 
 При использовании Jest или vitest с `globals: true`, `createTestingPinia` автоматически создает заглушки (stubs) действий с помощью функции шпионов (spy) на основе существующего тестового фреймворка (`jest.fn` или `vitest.fn`). Если вы не используете `globals: true` или используете другой фреймворк, то вам необходимо указать опцию [createSpy](/api/interfaces/pinia_testing.TestingOptions.html#createspy):

@@ -55,9 +55,28 @@ const store = useCounterStore()
 
 ## Доступ к другим геттерам %{#accessing-other-getters}%
 
-Как и с вычисляемыми свойствами, вы можете комбинировать несколько геттеров. Доступ к любому другому геттеру осуществляется через `this`. Даже если вы не используете TypeScript, вы можете подсказать вашей среде разработки типы с помощью [JSDoc](https://jsdoc.app/tags-returns.html):
+Как и в случае с вычисляемыми свойствами, вы можете комбинировать несколько геттеров. Доступ к любому другому геттеру осуществляется через `this`. В этом случае **вам нужно будет указать возвращаемый тип** для геттера:
 
-```js
+::: code-group
+
+```ts [counterStore.ts]
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    count: 0,
+  }),
+  getters: {
+    doubleCount(state) {
+      return state.count * 2
+    },
+    doubleCountPlusOne(): number {
+      return this.doubleCount + 1
+    },
+  },
+})
+```
+
+```js [counterStore.js]
+// Вы можете использовать JSDoc (https://jsdoc.app/tags-returns.html) в JavaScript
 export const useCounterStore = defineStore('counter', {
   state: () => ({
     count: 0,
@@ -79,6 +98,8 @@ export const useCounterStore = defineStore('counter', {
   },
 })
 ```
+
+:::
 
 ## Передача аргументов в геттеры %{#passing-arguments-to-getters}%
 
@@ -112,7 +133,7 @@ const { getUserById } = storeToRefs(userList)
 </template>
 ```
 
-Обратите внимание, что при этом **геттеры больше не кэшируются**, они просто функции, которые вы вызываете. Однако вы можете кэшировать некоторые результаты внутри самого геттера, что необычно, но может оказаться более производительным:
+Обратите внимание, что при этом **геттеры больше не кэшируются**. Они являются обычными функциями, которые вы вызываете. Однако вы можете кэшировать некоторые результаты внутри самого геттера, что необычно, но может оказаться более производительным:
 
 ```js
 export const useStore = defineStore('main', {
@@ -127,7 +148,7 @@ export const useStore = defineStore('main', {
 
 ## Доступ к геттерам других хранилищ %{#accessing-other-stores-getters}%
 
-Чтобы использовать геттер другого хранилища , можно напрямую _использовать его_ внутри _геттера_:
+Чтобы использовать геттеры других хранилищ , можно напрямую _использовать их внутри _геттера_:
 
 ```js
 import { useOtherStore } from './other-store'
@@ -209,7 +230,7 @@ export default defineComponent({
 </script>
 ```
 
-Это полезно при переносе компонента из Options API в Composition API, но **должно быть только шагом миграции**, всегда старайтесь не смешивать оба стиля API в одном компоненте.
+Это полезно при переносе компонента из Options API в Composition API, но **должно быть только шагом миграции**. Всегда старайтесь не смешивать оба стиля API в одном компоненте.
 
 ### Без `setup()` %{#without-setup}%
 
