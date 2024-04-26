@@ -62,7 +62,7 @@ export const ruConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
           },
           {
             text: 'Сертификация по Vue.js',
-            link: 'https://certification.vuejs.org/?friend=VUEROUTER',
+            link: 'https://certificates.dev/vuejs/?friend=VUEROUTER&utm_source=pinia_vuejs&utm_medium=link&utm_campaign=pinia_vuejs_links&utm_content=navbar',
           },
         ],
       },
