@@ -117,7 +117,7 @@ import { toRef, ref } from 'vue'
 pinia.use(({ store }) => {
   // чтобы правильно обработать SSR, нам нужно убедиться, что мы не
   // переопределяем существующее значение
-  if (!Object.prototype.hasOwnProperty(store.$state, 'hasError')) {
+  if (!store.$state.hasOwnProperty('hasError')) {
     // hasError определяется внутри плагина, поэтому каждое хранилище имеет свое
     // индивидуальное свойство состояния
     const hasError = ref(false)
@@ -144,7 +144,7 @@ pinia.use(({ store }) => {
 ```js
 import { set, toRef } from '@vue/composition-api'
 pinia.use(({ store }) => {
-  if (!Object.prototype.hasOwnProperty(store.$state, 'secret')) {
+  if (!store.$state.hasOwnProperty('secret')) {
     const secretRef = ref('secret')
     // Если данные предназначены для использования во время SSR, их следует
     // устанавливать в свойстве $state, чтобы они сериализовались и
@@ -169,7 +169,7 @@ import { toRef, ref } from 'vue'
 
 pinia.use(({ store }) => {
   // для справки, это тот же код, что и выше
-  if (!Object.prototype.hasOwnProperty(store.$state, 'hasError')) {
+  if (!store.$state.hasOwnProperty('hasError')) {
     const hasError = ref(false)
     store.$state.hasError = hasError
   }
@@ -183,7 +183,7 @@ pinia.use(({ store }) => {
     $reset() {
       originalReset()
       store.hasError = false
-    }
+    },
   }
 })
 ```
@@ -397,7 +397,7 @@ declare module 'pinia' {
 
 При [использовании pinia вместе с Nuxt](../ssr/nuxt.md) необходимо сначала создать [Nuxt плагин](https://nuxt.com/docs/guide/directory-structure/plugins). Это даст вам доступ к экземпляру `pinia`:
 
-```ts
+```ts{14-16}
 // plugins/myPiniaPlugin.ts
 import { PiniaPluginContext } from 'pinia'
 
@@ -416,13 +416,17 @@ export default defineNuxtPlugin(({ $pinia }) => {
 })
 ```
 
-Обратите внимание, что в приведенном примере используется TypeScript, поэтому при использовании файла `.js` необходимо удалить аннотации типов `PiniaPluginContext` и `Plugin`, а также их импорт.
+::: info Для справки
+
+В приведенном примере используется TypeScript, поэтому при использовании файла `.js` необходимо удалить аннотации типов `PiniaPluginContext` и `Plugin`, а также их импорт.
+
+:::
 
 ### Nuxt.js 2 %{#nuxt-js-2}%
 
 Если вы используете Nuxt.js 2, то типы немного отличаются:
 
-```ts
+```ts{3,15-17}
 // plugins/myPiniaPlugin.ts
 import { PiniaPluginContext } from 'pinia'
 import { Plugin } from '@nuxt/types'

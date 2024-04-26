@@ -77,6 +77,7 @@ Setup-хранилища также могут зависеть от глоба�
 ```ts
 import { inject } from 'vue'
 import { useRoute } from 'vue-router'
+import { defineStore } from 'pinia'
 
 export const useSearchFilters = defineStore('search-filters', () => {
   const route = useRoute()
@@ -97,7 +98,7 @@ export const useSearchFilters = defineStore('search-filters', () => {
 
 ## Какой синтаксис выбрать? %{#what-syntax-should-i-pick}%
 
-Как и с [Composition API и Options API в Vue](https://vuejs.org/guide/introduction.html#which-to-choose), выбирайте тот подход, с которым вы чувствуете себя наиболее комфортно. Если вы не уверены, попробуйте сначала [option-хранилища](#option-stores).
+Как и с [Composition API и Options API в Vue](https://vuejs.org/guide/introduction.html#which-to-choose), выбирайте тот подход, с которым вам удобнее всего. У каждого свои преимущества и недостатки. Option-хранилища проще в использовании, в то время как Setup-хранилища более гибкие и мощные. Если вы хотите углубиться в различия, обратитесь к главе [Option Stores vs Setup Stores chapter](https://masteringpinia.com/lessons/when-to-choose-one-syntax-over-the-other) на курсе Mastering Pinia.
 
 ## Использование хранилища %{#using-the-store}%
 
@@ -125,6 +126,8 @@ const store = useCounterStore()
 ```vue
 <script setup>
 import { useCounterStore } from '@/stores/counter'
+import { computed } from 'vue'
+
 const store = useCounterStore()
 // ❌ Это не будет работать, так как нарушает реактивность
 // это то же самое, что и деструктуризация из `props`.

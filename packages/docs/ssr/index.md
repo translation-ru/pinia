@@ -92,7 +92,7 @@ const pinia = createPinia()
 const app = createApp(App)
 app.use(pinia)
 
-// `isClient` зависит от среды выполнения, например, в Nuxt это `process.client`.
+// `isClient` зависит от среды выполнения, например, в Nuxt это `import.meta.client`
 if (isClient) {
   pinia.state.value = JSON.parse(window.__pinia)
 }
