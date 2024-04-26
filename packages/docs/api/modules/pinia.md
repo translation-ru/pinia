@@ -391,12 +391,12 @@ ___
 
 #### Параметры типа
 
-| Название | Тип                                                                                                                             |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| `Id`     | extends `string`                                                                                                                |
-| `S`      | extends [`StateTree`](pinia.md#StateTree)                                                                                       |
-| `G`      | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\>                                                                           |
-| `A`      | `A`                                                                                                                             |
+| Название | Тип                                                                                                                               |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `Id`     | extends `string`                                                                                                                  |
+| `S`      | extends [`StateTree`](pinia.md#StateTree)                                                                                         |
+| `G`      | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> \| \{ `[key: string]`: `ComputedRef`;  }                                   |
+| `A`      | `A`                                                                                                                               |
 | `T`      | extends `Record`\<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](pinia.md#Store)\<`Id`, `S`, `G`, `A`\>) => `any`\> = {} |
 
 ___
@@ -409,11 +409,11 @@ ___
 
 #### Параметры типа
 
-| Название | Тип                                                     |
-| :------- | :------------------------------------------------------ |
-| `S`      | extends [`StateTree`](pinia.md#StateTree)               |
-| `G`      | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\>   |
-| `Keys`   | extends keyof `S` \| keyof `G` = keyof `S` \| keyof `G` |
+| Название | Тип                                                                                        |
+| :------- | :------------------------------------------------------ --- --- --- --- --- --- --- --- -- |
+| `S`      | extends [`StateTree`](pinia.md#StateTree)                                                  |
+| `G` | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> \| \{ `[key: string]`: `ComputedRef`;  } |
+| `Keys`   | extends keyof `S` \| keyof `G` = keyof `S` \| keyof `G`                                    |
 
 ___
 
@@ -710,6 +710,7 @@ ___
 ▸ **disposePinia**(`pinia`): `void`
 
 Завершает работу экземпляра Pinia, останавливая его effectScope, удаляя состояние, плагины и хранилища. Это полезно в основном для тестов, как с тестовым экземпляром Pinia, так и с обычным, а также в приложениях, использующих несколько экземпляров Pinia.
+После удаления экземпляра pinia его больше нельзя использовать.
 
 #### Параметры
 
@@ -829,12 +830,12 @@ ___
 
 #### Параметры типа
 
-| Название    | Тип                                                                                                                        |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------- |
-| `Id`        | extends `string`                                                                                                           |
-| `S`         | extends [`StateTree`](pinia.md#StateTree)                                                                                  |
-| `G`         | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\>                                                                      |
-| `A`         | `A`                                                                                                                        |
+| Название    | Тип                                                                                                                          |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| `Id`        | extends `string`                                                                                                             |
+| `S`         | extends [`StateTree`](pinia.md#StateTree)                                                                                    |
+| `G`         | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> \| \{ `[key: string]`: `ComputedRef`;  }                              |
+| `A`         | `A`                                                                                                                          |
 | `KeyMapper` | extends `Record`\<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](pinia.md#Store)\<`Id`, `S`, `G`, `A`\>) => `any`\> |
 
 #### Параметры
@@ -858,13 +859,13 @@ ___
 
 #### Параметры типа
 
-| Название | Тип                                                   |
-| :------- | :---------------------------------------------------- |
-| `Id`     | extends `string`                                      |
-| `S`      | extends [`StateTree`](pinia.md#StateTree)             |
-| `G`      | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> |
-| `A`      | `A`                                                   |
-| `Keys`   | extends `string` \| `number` \| `symbol`              |
+| Название | Тип                                                                                        |
+| :------- | :----------------------------------------------------------------------------------------- |
+| `Id`     | extends `string`                                                                           |
+| `S`      | extends [`StateTree`](pinia.md#StateTree)                                                  |
+| `G` | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> \| \{ `[key: string]`: `ComputedRef`;  } |
+| `A`      | `A`                                                                                        |
+| `Keys`   | extends `string` \| `number` \| `symbol`                                                   |
 
 #### Параметры
 
@@ -891,12 +892,12 @@ ___
 
 #### Параметры типа
 
-| Название    | Тип                                                                                                                        |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------- |
-| `Id`        | extends `string`                                                                                                           |
-| `S`         | extends [`StateTree`](pinia.md#StateTree)                                                                                  |
-| `G`         | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\>                                                                      |
-| `A`         | `A`                                                                                                                        |
+| Название    | Тип                                                                                                                         |
+| :---------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| `Id`        | extends `string`                                                                                                            |
+| `S`         | extends [`StateTree`](pinia.md#StateTree)                                                                                   |
+| `G`         | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> \| \{ `[key: string]`: `ComputedRef`;  }                             |
+| `A`         | `A`                                                                                                                         |
 | `KeyMapper` | extends `Record`<`string`, keyof `S` \| keyof `G` \| (`store`: [`Store`](pinia.md#Store)\<`Id`, `S`, `G`, `A`\>) => `any`\> |
 
 #### Параметры
@@ -941,13 +942,13 @@ export default {
 
 #### Параметры типа
 
-| Название | Тип                                                    |
-| :------- | :----------------------------------------------------- |
-| `Id`     | extends `string`                                       |
-| `S`      | extends [`StateTree`](pinia.md#StateTree)              |
-| `G`      | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> |
-| `A`      | `A`                                                    |
-| `Keys`   | extends `string` \| `number` \| `symbol`               |
+| Название | Тип                                                                                        |
+| :------- | :----------------------------------------------------------------------------------------- |
+| `Id`     | extends `string`                                                                           |
+| `S`      | extends [`StateTree`](pinia.md#StateTree)                                                  |
+| `G` | extends [`_GettersTree`](pinia.md#_GettersTree)\<`S`\> \| \{ `[key: string]`: `ComputedRef`;  } |
+| `A`      | `A`                                                                                        |
+| `Keys`   | extends `string` \| `number` \| `symbol`                                                   |
 
 #### Параметры
 

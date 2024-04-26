@@ -1,5 +1,9 @@
 # Состояние %{#state}%
 
+<!--
+https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state
+ -->
+
 <VueSchoolLink
   href="https://vueschool.io/lessons/access-state-from-a-pinia-store"
   title="Узнайте все о состоянии в Pinia"

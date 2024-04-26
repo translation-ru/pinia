@@ -22,7 +22,7 @@ editLink: false
 
 ### after
 
-• **after**: (`callback`: `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)\<`ReturnType`\<`A`[`ActionName`]\>\>) => `void` : () => `void`) => `void`
+• **after**: (`callback`: `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)\<`ReturnType`\<`A`\<`A`\>[`ActionName`]\>\>) => `void` : () => `void`) => `void`
 
 Устанавливает хук по завершению действия. Он получает возвращаемое действием значение, если это Promise, то оно будет развернуто.
 
@@ -30,13 +30,11 @@ editLink: false
 
 ▸ (`callback`): `void`
 
-Устанавливает хук по завершению действия. Он получает возвращаемое действием значение, если это Promise, то оно будет развернуто.
-
 ##### Свойства
 
 | Название   | Тип                                                                                                                                                                                                        |
 | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `callback` | `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)\<`ReturnType`\<`A`[`ActionName`]\>\>) => `void` : () => `void` |
+| `callback` | `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? (`resolvedReturn`: [`_Awaited`](../modules/pinia.md#_Awaited)\<`ReturnType`\<`A`\<`A`\>[`ActionName`]\>\>) => `void` : () => `void` |
 
 ##### Возвращает
 
@@ -46,7 +44,7 @@ ___
 
 ### args
 
-• **args**: `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? `Parameters`\<`A`[`ActionName`]\> : `unknown`[]
+• **args**: `A` extends `Record`\<`ActionName`, [`_Method`](../modules/pinia.md#_Method)\> ? `Parameters`\<`A`\<`A`\>[`ActionName`]\> : `unknown`[]
 
 Параметры, передаваемые действию
 
@@ -70,9 +68,6 @@ ___
 #### Объявление типа
 
 ▸ (`callback`): `void`
-
-Устанавливает хук при неудачном выполнении действия. Возвращайте `false`, чтобы перехватить ошибку и
-остановить ее распространение.
 
 ##### Параметры
 
